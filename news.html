@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Spiele Server – News</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #0f172a;
+    color: white;
+
+    transition: 0.3s;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding: 15px 25px;
+
+    background: #1e293b;
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.3);
+
+    flex-wrap: wrap;
+}
+
+
+nav a {
+
+    color: white;
+
+    text-decoration: none;
+
+    padding: 11px 16px;
+
+    border-radius: 10px;
+
+    transition: 0.2s;
+}
+
+
+nav a:hover,
+nav a.active {
+
+    background: #334155;
+}
+
+
+.logo {
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    margin-right: auto;
+}
+
+
+/* =========================
+   THEME BUTTON
+========================= */
+
+.theme-button {
+
+    background: #334155;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 14px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+.theme-button:hover {
+
+    background: #475569;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+    text-align: center;
+
+    padding: 70px 20px 50px;
+}
+
+
+.header h1 {
+
+    font-size: 50px;
+
+    margin: 0 0 15px;
+}
+
+
+.header p {
+
+    color: #94a3b8;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   NEWS CONTAINER
+========================= */
+
+.container {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    padding: 20px;
+}
+
+
+/* =========================
+   NEWS
+========================= */
+
+.news {
+
+    background: #1e293b;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.25);
+
+    border-left:
+        5px solid #3b82f6;
+
+    transition: 0.2s;
+}
+
+
+.news:hover {
+
+    transform:
+        translateY(-3px);
+
+    background: #263449;
+}
+
+
+.news-date {
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    margin-bottom: 10px;
+}
+
+
+.news h2 {
+
+    margin:
+        0 0 15px;
+
+    font-size: 28px;
+}
+
+
+.news p {
+
+    color: #cbd5e1;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+
+    color: #64748b;
+
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light {
+
+    background: #f1f5f9;
+
+    color: #0f172a;
+}
+
+
+body.light nav {
+
+    background: white;
+}
+
+
+body.light nav a {
+
+    color: #0f172a;
+}
+
+
+body.light nav a:hover,
+body.light nav a.active {
+
+    background: #e2e8f0;
+}
+
+
+body.light .theme-button {
+
+    background: #e2e8f0;
+
+    color: #0f172a;
+}
+
+
+body.light .header p {
+
+    color: #64748b;
+}
+
+
+body.light .news {
+
+    background: white;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,0.08);
+}
+
+
+body.light .news:hover {
+
+    background: #f8fafc;
+}
+
+
+body.light .news-date {
+
+    color: #64748b;
+}
+
+
+body.light .news p {
+
+    color: #475569;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    nav {
+
+        justify-content: center;
+    }
+
+    .logo {
+
+        width: 100%;
+
+        text-align: center;
+
+        margin-bottom: 5px;
+    }
+
+    .header h1 {
+
+        font-size: 38px;
+    }
+
+    .news {
+
+        padding: 23px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+<div class="logo">
+
+🎮 Spiele Server
+
+</div>
+
+
+<a href="index.html">
+
+🏠 Start
+
+</a>
+
+
+<a href="spiele.html">
+
+🎮 Spiele
+
+</a>
+
+
+<a href="news.html" class="active">
+
+📰 News
+
+</a>
+
+
+<a
+href="https://discord.gg/VDNRRT3hnj"
+target="_blank">
+
+💬 Discord
+
+</a>
+
+
+<button
+class="theme-button"
+onclick="toggleTheme()"
+id="themeButton">
+
+🌙
+
+</button>
+
+</nav>
+
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<section class="header">
+
+<h1>
+
+📰 News
+
+</h1>
+
+
+<p>
+
+Hier findest du alle Neuigkeiten
+rund um den Spiele Server.
+
+</p>
+
+</section>
+
+
+
+<!-- =========================
+     NEWS
+========================= -->
+
+<main class="container">
+
+
+<!-- NEUESTE NEWS -->
+
+<div class="news">
+
+<div class="news-date">
+
+📅 19.08.2026
+
+</div>
+
+
+<h2>
+
+🎉 Die Webseite ist eröffnet!
+
+</h2>
+
+
+<p>
+
+Unsere neue Spiele-Server-Webseite
+ist ab heute online! 🚀
+
+</p>
+
+
+<p>
+
+Hier findest du ab sofort Informationen
+über unsere Spiele, Neuigkeiten und
+alles rund um unsere Community.
+
+</p>
+
+
+<p>
+
+Wir freuen uns auf euch! ❤️
+
+</p>
+
+</div>
+
+
+
+<!-- WEITERE NEWS HIER -->
+
+<!--
+
+<div class="news">
+
+<div class="news-date">
+
+📅 20.08.2026
+
+</div>
+
+<h2>
+
+🎮 Neue News
+
+</h2>
+
+<p>
+
+Hier kommt deine nächste News hin.
+
+</p>
+
+</div>
+
+-->
+
+
+</main>
+
+
+
+<footer>
+
+© Spiele Server 2026
+
+</footer>
+
+
+
+<script>
+
+function toggleTheme() {
+
+    document.body.classList.toggle("light");
+
+    const light =
+        document.body.classList.contains("light");
+
+    localStorage.setItem(
+        "spieleServerTheme",
+        light ? "light" : "dark"
+    );
+
+    updateButton();
+
+}
+
+
+function updateButton() {
+
+    const button =
+        document.getElementById("themeButton");
+
+    if (
+        document.body.classList.contains("light")
+    ) {
+
+        button.textContent = "☀️";
+
+    } else {
+
+        button.textContent = "🌙";
+
+    }
+
+}
+
+
+window.addEventListener("load", function() {
+
+    const theme =
+        localStorage.getItem("spieleServerTheme");
+
+    if (theme === "light") {
+
+        document.body.classList.add("light");
+
+    }
+
+    updateButton();
+
+});
+
+</script>
+
+
+</body>
+
+</html>
