@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="de">
 
@@ -23,8 +24,10 @@ html {
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
+
     background: #0f172a;
     color: #f8fafc;
+
     transition: 0.3s;
 }
 
@@ -44,7 +47,9 @@ nav {
     padding: 15px 30px;
 
     background: rgba(15, 23, 42, 0.92);
+
     backdrop-filter: blur(12px);
+
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -61,9 +66,13 @@ nav {
 
 .nav-links a {
     color: inherit;
+
     text-decoration: none;
+
     padding: 10px 15px;
+
     border-radius: 10px;
+
     transition: 0.2s;
 }
 
@@ -73,16 +82,22 @@ nav {
 }
 
 /* =========================
-   THEME
+   THEME BUTTON
 ========================= */
 
 .theme-button {
     border: none;
+
     background: rgba(255,255,255,0.1);
+
     color: inherit;
+
     padding: 10px 13px;
+
     border-radius: 10px;
+
     cursor: pointer;
+
     font-size: 18px;
 }
 
@@ -94,10 +109,13 @@ nav {
     min-height: 380px;
 
     display: flex;
+
     align-items: center;
+
     justify-content: center;
 
     text-align: center;
+
     padding: 70px 20px;
 
     background:
@@ -109,6 +127,7 @@ nav {
         );
 
     position: relative;
+
     overflow: hidden;
 }
 
@@ -125,9 +144,11 @@ nav {
     border-radius: 50%;
 
     filter: blur(150px);
+
     opacity: 0.22;
 
     top: -250px;
+
     left: 50%;
 
     transform: translateX(-50%);
@@ -135,13 +156,17 @@ nav {
 
 .hero-content {
     position: relative;
+
     z-index: 2;
+
     max-width: 800px;
 }
 
 .hero h1 {
     font-size: clamp(45px, 8vw, 70px);
+
     margin: 0 0 20px;
+
     font-weight: 800;
 }
 
@@ -151,8 +176,11 @@ nav {
 
 .hero p {
     font-size: 20px;
+
     color: #cbd5e1;
+
     line-height: 1.7;
+
     margin: 0;
 }
 
@@ -162,7 +190,9 @@ nav {
 
 .container {
     max-width: 850px;
+
     margin: auto;
+
     padding: 70px 20px;
 }
 
@@ -183,11 +213,13 @@ nav {
 
 .form-box h2 {
     margin-top: 0;
+
     font-size: 30px;
 }
 
 .form-box p {
     color: #cbd5e1;
+
     line-height: 1.7;
 }
 
@@ -201,7 +233,9 @@ nav {
 
 .form-group label {
     display: block;
+
     margin-bottom: 8px;
+
     font-weight: bold;
 }
 
@@ -239,7 +273,9 @@ nav {
 }
 
 .form-group textarea {
+
     min-height: 140px;
+
     resize: vertical;
 }
 
@@ -331,8 +367,11 @@ nav {
 ========================= */
 
 footer {
+
     text-align: center;
+
     padding: 30px;
+
     color: #94a3b8;
 }
 
@@ -341,12 +380,16 @@ footer {
 ========================= */
 
 body.light {
+
     background: #f1f5f9;
+
     color: #0f172a;
 }
 
 body.light nav {
+
     background: rgba(255,255,255,0.92);
+
     border-bottom: 1px solid #e2e8f0;
 }
 
@@ -362,6 +405,7 @@ body.light .hero {
 }
 
 body.light .hero p {
+
     color: #475569;
 }
 
@@ -376,6 +420,7 @@ body.light .form-box {
 }
 
 body.light .form-box p {
+
     color: #475569;
 }
 
@@ -436,18 +481,22 @@ body.light .form-group textarea {
     }
 
     .hero h1 {
+
         font-size: 45px;
     }
 
     .hero p {
+
         font-size: 17px;
     }
 
     .container {
+
         padding: 50px 15px;
     }
 
     .form-box {
+
         padding: 25px;
     }
 
@@ -553,7 +602,7 @@ Deine Bewerbung wird anschließend an unser Team gesendet.
 
 <form id="applicationForm">
 
-<!-- DISCORD -->
+<!-- FRAGE 1 -->
 
 <div class="form-group">
 
@@ -569,7 +618,7 @@ required>
 
 </div>
 
-<!-- NAME -->
+<!-- FRAGE 2 -->
 
 <div class="form-group">
 
@@ -585,7 +634,7 @@ required>
 
 </div>
 
-<!-- ALTER -->
+<!-- FRAGE 3 -->
 
 <div class="form-group">
 
@@ -603,7 +652,7 @@ required>
 
 </div>
 
-<!-- POSITION -->
+<!-- FRAGE 4 -->
 
 <div class="form-group">
 
@@ -641,7 +690,7 @@ Bitte auswählen
 
 </div>
 
-<!-- BEREICH -->
+<!-- FRAGE 5 -->
 
 <div class="form-group">
 
@@ -657,7 +706,7 @@ required>
 
 </div>
 
-<!-- AKTIVITÄT -->
+<!-- FRAGE 6 -->
 
 <div class="form-group">
 
@@ -673,7 +722,7 @@ required>
 
 </div>
 
-<!-- WARUM TEAM -->
+<!-- FRAGE 7 -->
 
 <div class="form-group">
 
@@ -688,7 +737,7 @@ required></textarea>
 
 </div>
 
-<!-- STÄRKEN UND SCHWÄCHEN -->
+<!-- FRAGE 8 -->
 
 <div class="form-group">
 
@@ -733,18 +782,12 @@ id="message">
 
 <script>
 
-/*
-==================================================
-DISCORD WEBHOOK
+/* =========================
+   DISCORD WEBHOOK
+========================= */
 
-WICHTIG:
-Erstelle einen NEUEN Webhook und trage ihn
-hier ein. Der alte Webhook sollte gelöscht werden,
-da er öffentlich geteilt wurde.
-==================================================
-*/
-
-const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1539661417421217892/-A38VaVAHKD_v147LPwIuHTUbjHf0G3yQfUyNzTroJHkc1Ts5CFVH0AL5MlCfHTsmISi";
+const DISCORD_WEBHOOK =
+"https://discord.com/api/webhooks/1539662819476242453/AOZuRAXv-EEth-LaCpb79KBZUeuM4u7S0vR2jiivQ3LNFUD6kilO0sOEYUrO-G4G9l31";
 
 
 /* =========================
@@ -758,28 +801,43 @@ document
     event.preventDefault();
 
     const discord =
-        document.getElementById("discord").value.trim();
+        document.getElementById("discord")
+        .value
+        .trim();
 
     const name =
-        document.getElementById("name").value.trim();
+        document.getElementById("name")
+        .value
+        .trim();
 
     const age =
-        document.getElementById("age").value.trim();
+        document.getElementById("age")
+        .value
+        .trim();
 
     const position =
-        document.getElementById("position").value;
+        document.getElementById("position")
+        .value;
 
     const games =
-        document.getElementById("games").value.trim();
+        document.getElementById("games")
+        .value
+        .trim();
 
     const activity =
-        document.getElementById("activity").value.trim();
+        document.getElementById("activity")
+        .value
+        .trim();
 
     const reason =
-        document.getElementById("reason").value.trim();
+        document.getElementById("reason")
+        .value
+        .trim();
 
     const strengths =
-        document.getElementById("strengths").value.trim();
+        document.getElementById("strengths")
+        .value
+        .trim();
 
     const button =
         document.getElementById("submitButton");
@@ -787,84 +845,137 @@ document
     const message =
         document.getElementById("message");
 
+
     button.disabled = true;
 
-    button.textContent = "⏳ Wird gesendet...";
+    button.textContent =
+        "⏳ Wird gesendet...";
 
-    message.className = "message";
 
-    message.textContent = "";
+    message.className =
+        "message";
+
+    message.textContent =
+        "";
+
+
+    /* =========================
+       DISCORD NACHRICHT
+    ========================= */
 
     const data = {
 
-        username: "Spiele Server - Bewerbungen",
+        username:
+            "Spiele Server - Bewerbungen",
 
         embeds: [
 
             {
 
-                title: "📋 Neue Team-Bewerbung",
+                title:
+                    "📋 Neue Team-Bewerbung",
 
-                color: 2505830,
+                color:
+                    2505830,
 
                 fields: [
 
                     {
-                        name: "Discord-Name",
-                        value: discord,
-                        inline: true
+                        name:
+                            "👤 Discord-Name",
+
+                        value:
+                            discord,
+
+                        inline:
+                            true
                     },
 
                     {
-                        name: "🙋 Name",
-                        value: name,
-                        inline: true
+                        name:
+                            "🙋 Name",
+
+                        value:
+                            name,
+
+                        inline:
+                            true
                     },
 
                     {
-                        name: "Alter",
-                        value: age,
-                        inline: true
+                        name:
+                            "🎂 Alter",
+
+                        value:
+                            age,
+
+                        inline:
+                            true
                     },
 
                     {
-                        name: "Bewerbung für",
-                        value: position,
-                        inline: false
+                        name:
+                            "🛡️ Bewerbung für",
+
+                        value:
+                            position,
+
+                        inline:
+                            false
                     },
 
                     {
-                        name: "🎮 Bereich",
-                        value: games,
-                        inline: false
+                        name:
+                            "🎮 Bereich",
+
+                        value:
+                            games,
+
+                        inline:
+                            false
                     },
 
                     {
-                        name: "⏰ Aktivität",
-                        value: activity,
-                        inline: false
+                        name:
+                            "⏰ Aktivität",
+
+                        value:
+                            activity,
+
+                        inline:
+                            false
                     },
 
                     {
-                        name: "💬 Warum möchtest du ins Team?",
-                        value: reason,
-                        inline: false
+                        name:
+                            "💬 Warum möchtest du ins Team?",
+
+                        value:
+                            reason,
+
+                        inline:
+                            false
                     },
 
                     {
-                        name: "💪 Stärken und Schwächen",
-                        value: strengths,
-                        inline: false
+                        name:
+                            "💪 Stärken und Schwächen",
+
+                        value:
+                            strengths,
+
+                        inline:
+                            false
                     }
 
                 ],
 
                 footer: {
-                    text: "Spiele Server Bewerbungen"
-                },
 
-                timestamp:
-                    new Date().toISOString()
+                    text:
+                        "Spiele Server Bewerbungen"
+
+                }
 
             }
 
@@ -872,14 +983,22 @@ document
 
     };
 
+
+    /* =========================
+       AN DISCORD SENDEN
+    ========================= */
+
     try {
 
         const response =
             await fetch(
+
                 DISCORD_WEBHOOK,
+
                 {
 
-                    method: "POST",
+                    method:
+                        "POST",
 
                     headers: {
 
@@ -892,7 +1011,9 @@ document
                         JSON.stringify(data)
 
                 }
+
             );
+
 
         if (!response.ok) {
 
@@ -902,19 +1023,25 @@ document
 
         }
 
+
         message.className =
             "message success";
 
         message.textContent =
             "✅ Deine Bewerbung wurde erfolgreich gesendet!";
 
+
         document
         .getElementById("applicationForm")
         .reset();
 
-    } catch (error) {
+
+    }
+
+    catch (error) {
 
         console.error(error);
+
 
         message.className =
             "message error";
@@ -924,7 +1051,9 @@ document
 
     }
 
-    button.disabled = false;
+
+    button.disabled =
+        false;
 
     button.textContent =
         "📤 Bewerbung absenden";
@@ -933,41 +1062,65 @@ document
 
 
 /* =========================
-   THEME
+   DARK / LIGHT MODE
 ========================= */
 
 function toggleTheme() {
 
-    document.body.classList.toggle("light");
+    document.body
+    .classList
+    .toggle("light");
+
 
     const isLight =
-        document.body.classList.contains("light");
+        document.body
+        .classList
+        .contains("light");
+
 
     localStorage.setItem(
+
         "spieleServerTheme",
+
         isLight
             ? "light"
             : "dark"
+
     );
+
 
     updateThemeButton();
 
 }
 
+
+/* =========================
+   THEME BUTTON
+========================= */
+
 function updateThemeButton() {
 
     const button =
-        document.getElementById("themeButton");
+        document.getElementById(
+            "themeButton"
+        );
+
 
     if (
-        document.body.classList.contains("light")
+        document.body
+        .classList
+        .contains("light")
     ) {
 
-        button.textContent = "☀️";
+        button.textContent =
+            "☀️";
 
-    } else {
+    }
 
-        button.textContent = "🌙";
+    else {
+
+        button.textContent =
+            "🌙";
 
     }
 
@@ -979,13 +1132,16 @@ function updateThemeButton() {
 ========================= */
 
 window.addEventListener(
+
     "load",
+
     function() {
 
         const savedTheme =
             localStorage.getItem(
                 "spieleServerTheme"
             );
+
 
         if (
             savedTheme === "light"
@@ -997,9 +1153,11 @@ window.addEventListener(
 
         }
 
+
         updateThemeButton();
 
     }
+
 );
 
 </script>
@@ -1007,3 +1165,4 @@ window.addEventListener(
 </body>
 
 </html>
+```
