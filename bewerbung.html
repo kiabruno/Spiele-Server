@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="de">
 
@@ -23,15 +22,11 @@ html {
 
 body {
     margin: 0;
-
     font-family: Arial, Helvetica, sans-serif;
-
     background: #0f172a;
     color: #f8fafc;
-
     transition: 0.3s;
 }
-
 
 /* =========================
    NAVIGATION
@@ -49,9 +44,7 @@ nav {
     padding: 15px 30px;
 
     background: rgba(15, 23, 42, 0.92);
-
     backdrop-filter: blur(12px);
-
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
@@ -68,13 +61,9 @@ nav {
 
 .nav-links a {
     color: inherit;
-
     text-decoration: none;
-
     padding: 10px 15px;
-
     border-radius: 10px;
-
     transition: 0.2s;
 }
 
@@ -83,27 +72,19 @@ nav {
     background: rgba(255,255,255,0.1);
 }
 
-
 /* =========================
    THEME
 ========================= */
 
 .theme-button {
     border: none;
-
     background: rgba(255,255,255,0.1);
-
     color: inherit;
-
     padding: 10px 13px;
-
     border-radius: 10px;
-
     cursor: pointer;
-
     font-size: 18px;
 }
-
 
 /* =========================
    HERO
@@ -113,13 +94,10 @@ nav {
     min-height: 380px;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 
     text-align: center;
-
     padding: 70px 20px;
 
     background:
@@ -131,7 +109,6 @@ nav {
         );
 
     position: relative;
-
     overflow: hidden;
 }
 
@@ -148,11 +125,9 @@ nav {
     border-radius: 50%;
 
     filter: blur(150px);
-
     opacity: 0.22;
 
     top: -250px;
-
     left: 50%;
 
     transform: translateX(-50%);
@@ -160,17 +135,13 @@ nav {
 
 .hero-content {
     position: relative;
-
     z-index: 2;
-
     max-width: 800px;
 }
 
 .hero h1 {
     font-size: clamp(45px, 8vw, 70px);
-
     margin: 0 0 20px;
-
     font-weight: 800;
 }
 
@@ -180,14 +151,10 @@ nav {
 
 .hero p {
     font-size: 20px;
-
     color: #cbd5e1;
-
     line-height: 1.7;
-
     margin: 0;
 }
-
 
 /* =========================
    FORMULAR
@@ -195,9 +162,7 @@ nav {
 
 .container {
     max-width: 850px;
-
     margin: auto;
-
     padding: 70px 20px;
 }
 
@@ -218,16 +183,13 @@ nav {
 
 .form-box h2 {
     margin-top: 0;
-
     font-size: 30px;
 }
 
 .form-box p {
     color: #cbd5e1;
-
     line-height: 1.7;
 }
-
 
 /* =========================
    FORM FELDER
@@ -239,9 +201,7 @@ nav {
 
 .form-group label {
     display: block;
-
     margin-bottom: 8px;
-
     font-weight: bold;
 }
 
@@ -279,12 +239,9 @@ nav {
 }
 
 .form-group textarea {
-
     min-height: 140px;
-
     resize: vertical;
 }
-
 
 /* =========================
    BUTTON
@@ -330,9 +287,7 @@ nav {
     cursor: not-allowed;
 
     transform: none;
-
 }
-
 
 /* =========================
    MELDUNGEN
@@ -371,36 +326,27 @@ nav {
     color: #f87171;
 }
 
-
 /* =========================
    FOOTER
 ========================= */
 
 footer {
-
     text-align: center;
-
     padding: 30px;
-
     color: #94a3b8;
 }
-
 
 /* =========================
    LIGHT MODE
 ========================= */
 
 body.light {
-
     background: #f1f5f9;
-
     color: #0f172a;
 }
 
 body.light nav {
-
     background: rgba(255,255,255,0.92);
-
     border-bottom: 1px solid #e2e8f0;
 }
 
@@ -416,7 +362,6 @@ body.light .hero {
 }
 
 body.light .hero p {
-
     color: #475569;
 }
 
@@ -431,7 +376,6 @@ body.light .form-box {
 }
 
 body.light .form-box p {
-
     color: #475569;
 }
 
@@ -445,7 +389,6 @@ body.light .form-group textarea {
 
     border: 1px solid #cbd5e1;
 }
-
 
 /* =========================
    MOBILE
@@ -493,22 +436,18 @@ body.light .form-group textarea {
     }
 
     .hero h1 {
-
         font-size: 45px;
     }
 
     .hero p {
-
         font-size: 17px;
     }
 
     .container {
-
         padding: 50px 15px;
     }
 
     .form-box {
-
         padding: 25px;
     }
 
@@ -520,7 +459,6 @@ body.light .form-group textarea {
 
 <body>
 
-
 <!-- =========================
      NAVIGATION
 ========================= -->
@@ -530,7 +468,6 @@ body.light .form-group textarea {
 <div class="logo">
 🎮 Spiele Server
 </div>
-
 
 <div class="nav-links">
 
@@ -576,7 +513,6 @@ id="themeButton">
 
 </nav>
 
-
 <!-- =========================
      HERO
 ========================= -->
@@ -598,7 +534,6 @@ Dann fülle einfach die Bewerbung aus.
 
 </section>
 
-
 <!-- =========================
      FORMULAR
 ========================= -->
@@ -616,9 +551,9 @@ Fülle alle Felder ehrlich aus.
 Deine Bewerbung wird anschließend an unser Team gesendet.
 </p>
 
-
 <form id="applicationForm">
 
+<!-- DISCORD -->
 
 <div class="form-group">
 
@@ -634,11 +569,28 @@ required>
 
 </div>
 
+<!-- NAME -->
+
+<div class="form-group">
+
+<label for="name">
+🙋 Wie ist dein Name?
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="z.B. Max"
+required>
+
+</div>
+
+<!-- ALTER -->
 
 <div class="form-group">
 
 <label for="age">
-🎂 WIe Alt bist du?
+🎂 Wie alt bist du?
 </label>
 
 <input
@@ -646,16 +598,17 @@ type="number"
 id="age"
 min="16"
 max="100"
-placeholder="z.B 16"
+placeholder="z.B. 16"
 required>
 
 </div>
 
+<!-- POSITION -->
 
 <div class="form-group">
 
 <label for="position">
-🛡️ Woführ Wilst du dich Bewerben?
+🛡️ Wofür willst du dich bewerben?
 </label>
 
 <select id="position" required>
@@ -688,11 +641,12 @@ Bitte auswählen
 
 </div>
 
+<!-- BEREICH -->
 
 <div class="form-group">
 
 <label for="games">
-🎮 In welchem Bereich wilst du Aktiv sein?
+🎮 In welchem Bereich willst du aktiv sein?
 </label>
 
 <input
@@ -703,6 +657,7 @@ required>
 
 </div>
 
+<!-- AKTIVITÄT -->
 
 <div class="form-group">
 
@@ -718,6 +673,7 @@ required>
 
 </div>
 
+<!-- WARUM TEAM -->
 
 <div class="form-group">
 
@@ -732,6 +688,22 @@ required></textarea>
 
 </div>
 
+<!-- STÄRKEN UND SCHWÄCHEN -->
+
+<div class="form-group">
+
+<label for="strengths">
+💪 Was sind deine Stärken und Schwächen?
+</label>
+
+<textarea
+id="strengths"
+placeholder="Erzähle uns etwas über deine Stärken und Schwächen..."
+required></textarea>
+
+</div>
+
+<!-- ABSENDEN -->
 
 <button
 type="submit"
@@ -742,12 +714,10 @@ id="submitButton">
 
 </button>
 
-
 <div
 class="message"
 id="message">
 </div>
-
 
 </form>
 
@@ -755,13 +725,11 @@ id="message">
 
 </main>
 
-
 <footer>
 
 © Spiele Server 2026
 
 </footer>
-
 
 <script>
 
@@ -769,13 +737,14 @@ id="message">
 ==================================================
 DISCORD WEBHOOK
 
-HIER DEINEN DISCORD-WEBHOOK EINTRAGEN.
-
-NICHT MIT ANDEREN TEILEN!
+WICHTIG:
+Erstelle einen NEUEN Webhook und trage ihn
+hier ein. Der alte Webhook sollte gelöscht werden,
+da er öffentlich geteilt wurde.
 ==================================================
 */
 
-const DISCORD_WEBHOOK = "https://discord.com/api/webhooks/1539652761938043002/UmESNsYZmogTIAp3uMB4cMsPyDweXXS3Fta9LZhOSWFmtw4uACKL1yqx0576-0QRq-1d";
+const DISCORD_WEBHOOK = "DEIN_NEUER_DISCORD_WEBHOOK";
 
 
 /* =========================
@@ -788,9 +757,11 @@ document
 
     event.preventDefault();
 
-
     const discord =
         document.getElementById("discord").value.trim();
+
+    const name =
+        document.getElementById("name").value.trim();
 
     const age =
         document.getElementById("age").value.trim();
@@ -807,13 +778,14 @@ document
     const reason =
         document.getElementById("reason").value.trim();
 
+    const strengths =
+        document.getElementById("strengths").value.trim();
 
     const button =
         document.getElementById("submitButton");
 
     const message =
         document.getElementById("message");
-
 
     button.disabled = true;
 
@@ -822,7 +794,6 @@ document
     message.className = "message";
 
     message.textContent = "";
-
 
     const data = {
 
@@ -845,41 +816,51 @@ document
                     },
 
                     {
+                        name: "Echt Name",
+                        value: name,
+                        inline: true
+                    },
+
+                    {
                         name: "Alter",
                         value: age,
                         inline: true
                     },
 
                     {
-                        name: "Beweorben für",
+                        name: "Beworben für:",
                         value: position,
                         inline: false
                     },
 
                     {
-                        name: "Im Bereich Aktiv Sein",
+                        name: "Bereich:",
                         value: games,
                         inline: false
                     },
 
                     {
-                        name: "⏰ Aktivität",
+                        name: "Aktivität:",
                         value: activity,
                         inline: false
                     },
 
                     {
-                        name: "💬 Warum möchtest du ins Team?",
+                        name: "Warum er ins Team will:",
                         value: reason,
+                        inline: false
+                    },
+
+                    {
+                        name: "Stärken und Schwächen:",
+                        value: strengths,
                         inline: false
                     }
 
                 ],
-
-                footer: {
-
-                    text: "Spiele Server Bewerbungen"
-
+                    footer: {
+    text: `Spiele Server Bewerbungen • ${new Date().toLocaleTimeString("de-DE")} • ${new Date().toLocaleDateString("de-DE")}`
+}
                 },
 
                 timestamp:
@@ -890,7 +871,6 @@ document
         ]
 
     };
-
 
     try {
 
@@ -914,7 +894,6 @@ document
                 }
             );
 
-
         if (!response.ok) {
 
             throw new Error(
@@ -923,23 +902,19 @@ document
 
         }
 
-
         message.className =
             "message success";
 
         message.textContent =
             "✅ Deine Bewerbung wurde erfolgreich gesendet!";
 
-
         document
         .getElementById("applicationForm")
         .reset();
 
-
     } catch (error) {
 
         console.error(error);
-
 
         message.className =
             "message error";
@@ -948,7 +923,6 @@ document
             "❌ Die Bewerbung konnte nicht gesendet werden. Bitte versuche es später erneut.";
 
     }
-
 
     button.disabled = false;
 
@@ -969,28 +943,21 @@ function toggleTheme() {
     const isLight =
         document.body.classList.contains("light");
 
-
     localStorage.setItem(
-
         "spieleServerTheme",
-
         isLight
             ? "light"
             : "dark"
-
     );
-
 
     updateThemeButton();
 
 }
 
-
 function updateThemeButton() {
 
     const button =
         document.getElementById("themeButton");
-
 
     if (
         document.body.classList.contains("light")
@@ -1020,7 +987,6 @@ window.addEventListener(
                 "spieleServerTheme"
             );
 
-
         if (
             savedTheme === "light"
         ) {
@@ -1030,7 +996,6 @@ window.addEventListener(
             .add("light");
 
         }
-
 
         updateThemeButton();
 
@@ -1042,4 +1007,3 @@ window.addEventListener(
 </body>
 
 </html>
-```
