@@ -14,13 +14,17 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
 
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
     background: #0f172a;
-    color: white;
+    color: #f8fafc;
 
     transition: 0.3s;
 }
@@ -39,18 +43,17 @@ nav {
     align-items: center;
     justify-content: space-between;
 
-    padding: 14px 30px;
+    padding: 15px 30px;
 
-    background: #1e293b;
+    background: rgba(15, 23, 42, 0.92);
 
-    box-shadow:
-        0 4px 20px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(12px);
 
-    flex-wrap: wrap;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .logo {
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
 }
 
@@ -61,59 +64,35 @@ nav {
 }
 
 .nav-links a {
-    color: white;
+    color: inherit;
+
     text-decoration: none;
 
-    font-size: 20px;
+    padding: 10px 15px;
 
-    padding: 14px 18px;
-
-    border-radius: 12px;
+    border-radius: 10px;
 
     transition: 0.2s;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    background: #334155;
-}
-
-.theme-button {
-    border: none;
-
-    background: #334155;
-
-    color: white;
-
-    padding: 14px 18px;
-
-    border-radius: 12px;
-
-    cursor: pointer;
-
-    font-size: 20px;
-
-    transition: 0.2s;
-}
-
-.theme-button:hover {
-    background: #475569;
+    background: rgba(255,255,255,0.1);
 }
 
 
 /* =========================
-   THEME BUTTON
+   THEME
 ========================= */
 
 .theme-button {
-
-    background: #334155;
-
-    color: white;
-
     border: none;
 
-    padding: 10px 14px;
+    background: rgba(255,255,255,0.1);
+
+    color: inherit;
+
+    padding: 10px 13px;
 
     border-radius: 10px;
 
@@ -123,113 +102,225 @@ nav {
 }
 
 
-.theme-button:hover {
-
-    background: #475569;
-}
-
-
 /* =========================
-   HEADER
+   NEWS HERO
 ========================= */
 
-.header {
+.news-hero {
+
+    min-height: 400px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 
     text-align: center;
 
-    padding: 70px 20px 50px;
+    padding: 70px 20px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #2563eb,
+            #1e293b 40%,
+            #0f172a 75%
+        );
+
+    position: relative;
+
+    overflow: hidden;
 }
 
 
-.header h1 {
+/* LICHT-EFFEKT */
 
-    font-size: 50px;
+.news-hero::before {
 
-    margin: 0 0 15px;
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    background: #3b82f6;
+
+    border-radius: 50%;
+
+    filter: blur(150px);
+
+    opacity: 0.25;
+
+    top: -250px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
 }
 
 
-.header p {
+/* INHALT ÜBER DEM LICHT */
 
-    color: #94a3b8;
+.news-hero-content {
 
-    font-size: 18px;
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 800px;
 }
 
+.news-hero h1 {
 
-/* =========================
-   NEWS CONTAINER
-========================= */
+    font-size: clamp(45px, 8vw, 75px);
 
-.container {
+    margin: 0 0 20px;
 
-    max-width: 900px;
-
-    margin: auto;
-
-    padding: 20px;
+    font-weight: 800;
 }
 
+.news-hero h1 span {
 
-/* =========================
-   NEWS
-========================= */
-
-.news {
-
-    background: #1e293b;
-
-    padding: 30px;
-
-    border-radius: 18px;
-
-    margin-bottom: 25px;
-
-    box-shadow:
-        0 8px 25px rgba(0,0,0,0.25);
-
-    border-left:
-        5px solid #3b82f6;
-
-    transition: 0.2s;
+    color: #60a5fa;
 }
 
+.news-hero p {
 
-.news:hover {
-
-    transform:
-        translateY(-3px);
-
-    background: #263449;
-}
-
-
-.news-date {
-
-    color: #94a3b8;
-
-    font-size: 14px;
-
-    margin-bottom: 10px;
-}
-
-
-.news h2 {
-
-    margin:
-        0 0 15px;
-
-    font-size: 28px;
-}
-
-
-.news p {
+    font-size: 20px;
 
     color: #cbd5e1;
 
     line-height: 1.7;
 
-    font-size: 16px;
+    margin: 0;
+}
+
+
+/* =========================
+   NEWS BEREICH
+========================= */
+
+.container {
+
+    max-width: 1000px;
+
+    margin: auto;
+
+    padding: 70px 20px;
+
+    position: relative;
+}
+
+
+/* LICHT ÜBER DEM NEWS TEXT */
+
+.container::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 450px;
+
+    height: 450px;
+
+    background: #2563eb;
+
+    border-radius: 50%;
+
+    filter: blur(150px);
+
+    opacity: 0.12;
+
+    top: 0;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   NEWS CARD
+========================= */
+
+.news {
+
+    position: relative;
+
+    z-index: 2;
+
+    background: rgba(30, 41, 59, 0.90);
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    margin-bottom: 25px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-left: 5px solid #3b82f6;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25);
+
+    backdrop-filter: blur(8px);
+
+    transition: 0.25s;
+}
+
+.news:hover {
+
+    transform: translateY(-6px);
+
+    background: rgba(38, 52, 73, 0.95);
+
+    box-shadow:
+        0 20px 45px rgba(37,99,235,0.15);
+}
+
+
+/* DATUM */
+
+.news-date {
+
+    color: #60a5fa;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin-bottom: 12px;
+}
+
+
+/* ÜBERSCHRIFT */
+
+.news h2 {
+
+    margin: 0 0 18px;
+
+    font-size: 30px;
+}
+
+
+/* TEXT */
+
+.news p {
+
+    color: #cbd5e1;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+    margin: 10px 0;
 }
 
 
@@ -241,9 +332,9 @@ footer {
 
     text-align: center;
 
-    color: #64748b;
+    padding: 30px;
 
-    padding: 40px 20px;
+    color: #94a3b8;
 }
 
 
@@ -261,55 +352,65 @@ body.light {
 
 body.light nav {
 
-    background: white;
+    background: rgba(255,255,255,0.92);
+
+    border-bottom: 1px solid #e2e8f0;
 }
 
 
-body.light nav a {
+body.light .news-hero {
 
-    color: #0f172a;
+    background:
+        radial-gradient(
+            circle at top,
+            #93c5fd,
+            #e0f2fe 45%,
+            #f1f5f9 75%
+        );
 }
 
 
-body.light nav a:hover,
-body.light nav a.active {
+body.light .news-hero p {
 
-    background: #e2e8f0;
+    color: #475569;
 }
 
 
-body.light .theme-button {
+body.light .news-hero::before {
 
-    background: #e2e8f0;
+    background: #60a5fa;
 
-    color: #0f172a;
+    opacity: 0.20;
 }
 
 
-body.light .header p {
+body.light .container::before {
 
-    color: #64748b;
+    background: #60a5fa;
+
+    opacity: 0.15;
 }
 
 
 body.light .news {
 
-    background: white;
+    background: rgba(255,255,255,0.92);
+
+    border: 1px solid #e2e8f0;
+
+    border-left: 5px solid #3b82f6;
 
     box-shadow:
-        0 8px 25px rgba(0,0,0,0.08);
+        0 10px 30px rgba(0,0,0,0.08);
 }
 
 
 body.light .news:hover {
 
-    background: #f8fafc;
-}
+    background: white;
 
-
-body.light .news-date {
-
-    color: #64748b;
+    box-shadow:
+        0 15px 35px rgba(37,99,235,0.12);
 }
 
 
@@ -319,15 +420,23 @@ body.light .news p {
 }
 
 
+body.light .news-date {
+
+    color: #2563eb;
+}
+
+
 /* =========================
    MOBILE
 ========================= */
 
-@media (max-width: 700px) {
+@media (max-width: 750px) {
 
     nav {
 
-        justify-content: center;
+        padding: 12px 15px;
+
+        flex-wrap: wrap;
     }
 
     .logo {
@@ -339,14 +448,57 @@ body.light .news p {
         margin-bottom: 5px;
     }
 
-    .header h1 {
+    .nav-links {
 
-        font-size: 38px;
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+
+        font-size: 14px;
+
+        padding: 8px 10px;
+    }
+
+    .news-hero {
+
+        min-height: 350px;
+
+        padding: 60px 20px;
+    }
+
+    .news-hero h1 {
+
+        font-size: 45px;
+    }
+
+    .news-hero p {
+
+        font-size: 17px;
+    }
+
+    .container {
+
+        padding: 50px 15px;
     }
 
     .news {
 
-        padding: 23px;
+        padding: 25px;
+    }
+
+    .news h2 {
+
+        font-size: 24px;
+    }
+
+    .news p {
+
+        font-size: 16px;
     }
 
 }
@@ -372,9 +524,11 @@ body.light .news p {
 </div>
 
 
+<div class="nav-links">
+
 <a href="index.html">
 
-🏠 Start
+🏠 Startseite
 
 </a>
 
@@ -388,14 +542,15 @@ body.light .news p {
 
 <a href="news.html" class="active">
 
-📰 News
+📣 News
 
 </a>
 
 
 <a
 href="https://discord.gg/VDNRRT3hnj"
-target="_blank">
+target="_blank"
+rel="noopener noreferrer">
 
 💬 Discord
 
@@ -411,27 +566,35 @@ id="themeButton">
 
 </button>
 
+</div>
+
 </nav>
 
 
-
 <!-- =========================
-     HEADER
+     NEWS HERO
 ========================= -->
 
-<section class="page-header">
+<section class="news-hero">
 
-    <h1>
-        📰 News
-    </h1>
+<div class="news-hero-content">
 
-    <p>
-        Hier findest du alle Neuigkeiten
-        rund um den Spiele Server.
-    </p>
+<h1>
+
+📰 <span>News</span>
+
+</h1>
+
+<p>
+
+Alle Neuigkeiten rund um
+den Spiele Server.
+
+</p>
+
+</div>
 
 </section>
-
 
 
 <!-- =========================
@@ -440,8 +603,6 @@ id="themeButton">
 
 <main class="container">
 
-
-<!-- NEUESTE NEWS -->
 
 <div class="news">
 
@@ -475,49 +636,49 @@ alles rund um unsere Community.
 
 </p>
 
-
-<p>
-
-Wir freuen uns auf euch! ❤️
-
-</p>
-
 </div>
 
 
-
-<!-- WEITERE NEWS HIER -->
-
-<!--
 
 <div class="news">
 
 <div class="news-date">
 
-📅 20.08.2026
+📅 18.08.2026
 
 </div>
 
+
 <h2>
 
-🎮 Neue News
+🎮 Willkommen auf unserem Server!
 
 </h2>
 
+
 <p>
 
-Hier kommt deine nächste News hin.
+Der Discord Server ist Relist!
+
+</p>
+
+
+<p>
+
+Der Discord-Server wurde heute Relist.
+Du kanst nun über den butten oben beitretten!
 
 </p>
 
 </div>
 
--->
-
 
 </main>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
@@ -526,6 +687,9 @@ Hier kommt deine nächste News hin.
 </footer>
 
 
+<!-- =========================
+     JAVASCRIPT
+========================= -->
 
 <script>
 
@@ -533,20 +697,20 @@ function toggleTheme() {
 
     document.body.classList.toggle("light");
 
-    const light =
+    const isLight =
         document.body.classList.contains("light");
 
     localStorage.setItem(
         "spieleServerTheme",
-        light ? "light" : "dark"
+        isLight ? "light" : "dark"
     );
 
-    updateButton();
+    updateThemeButton();
 
 }
 
 
-function updateButton() {
+function updateThemeButton() {
 
     const button =
         document.getElementById("themeButton");
@@ -568,16 +732,16 @@ function updateButton() {
 
 window.addEventListener("load", function() {
 
-    const theme =
+    const savedTheme =
         localStorage.getItem("spieleServerTheme");
 
-    if (theme === "light") {
+    if (savedTheme === "light") {
 
         document.body.classList.add("light");
 
     }
 
-    updateButton();
+    updateThemeButton();
 
 });
 
