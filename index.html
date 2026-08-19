@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="de">
 
@@ -24,7 +23,7 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     background: #0f172a;
     color: #f8fafc;
-    transition: background 0.3s, color 0.3s;
+    transition: 0.3s;
 }
 
 /* =========================
@@ -42,7 +41,7 @@ nav {
 
     padding: 15px 30px;
 
-    background: rgba(15, 23, 42, 0.9);
+    background: rgba(15, 23, 42, 0.92);
     backdrop-filter: blur(12px);
 
     border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -70,12 +69,13 @@ nav {
     transition: 0.2s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active {
     background: rgba(255,255,255,0.1);
 }
 
 /* =========================
-   THEME BUTTON
+   THEME
 ========================= */
 
 .theme-button {
@@ -91,12 +91,6 @@ nav {
     cursor: pointer;
 
     font-size: 18px;
-
-    transition: 0.2s;
-}
-
-.theme-button:hover {
-    transform: scale(1.05);
 }
 
 /* =========================
@@ -117,9 +111,9 @@ nav {
     background:
         radial-gradient(
             circle at top,
-            #2563eb 0%,
-            #1e293b 35%,
-            #0f172a 70%
+            #2563eb,
+            #1e293b 40%,
+            #0f172a 75%
         );
 }
 
@@ -150,7 +144,7 @@ nav {
 }
 
 /* =========================
-   DISCORD BUTTON
+   DISCORD
 ========================= */
 
 .discord-button {
@@ -170,8 +164,6 @@ nav {
 
     font-weight: bold;
 
-    box-shadow: 0 10px 30px rgba(88,101,242,0.35);
-
     transition: 0.25s;
 }
 
@@ -179,11 +171,11 @@ nav {
     transform: translateY(-4px);
 
     box-shadow:
-        0 15px 35px rgba(88,101,242,0.5);
+        0 15px 35px rgba(88,101,242,0.45);
 }
 
 /* =========================
-   CONTAINER
+   CONTENT
 ========================= */
 
 .container {
@@ -193,10 +185,6 @@ nav {
 
     padding: 70px 20px;
 }
-
-/* =========================
-   INFO BOX
-========================= */
 
 .info-box {
     background: #1e293b;
@@ -228,7 +216,7 @@ nav {
 }
 
 /* =========================
-   CARDS
+   GAME CARDS
 ========================= */
 
 .cards {
@@ -238,14 +226,12 @@ nav {
         repeat(3, 1fr);
 
     gap: 20px;
-
-    margin-top: 30px;
 }
 
 .card {
     background: #1e293b;
 
-    padding: 28px;
+    padding: 30px;
 
     border-radius: 18px;
 
@@ -263,7 +249,7 @@ nav {
 }
 
 .card-icon {
-    font-size: 45px;
+    font-size: 50px;
 
     margin-bottom: 15px;
 }
@@ -274,8 +260,6 @@ nav {
 
 .card p {
     color: #94a3b8;
-
-    line-height: 1.6;
 }
 
 /* =========================
@@ -288,8 +272,6 @@ footer {
     padding: 30px;
 
     color: #94a3b8;
-
-    border-top: 1px solid rgba(255,255,255,0.06);
 }
 
 /* =========================
@@ -303,18 +285,17 @@ body.light {
 }
 
 body.light nav {
-    background: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.92);
 
-    border-bottom:
-        1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 body.light .hero {
     background:
         radial-gradient(
             circle at top,
-            #93c5fd 0%,
-            #e0f2fe 40%,
+            #93c5fd,
+            #e0f2fe 45%,
             #f1f5f9 75%
         );
 }
@@ -327,8 +308,7 @@ body.light .info-box,
 body.light .card {
     background: white;
 
-    border:
-        1px solid #e2e8f0;
+    border: 1px solid #e2e8f0;
 
     box-shadow:
         0 10px 30px rgba(0,0,0,0.08);
@@ -342,10 +322,6 @@ body.light .card p {
     color: #64748b;
 }
 
-body.light .card:hover {
-    background: #f8fafc;
-}
-
 /* =========================
    MOBILE
 ========================= */
@@ -356,8 +332,6 @@ body.light .card:hover {
         padding: 12px 15px;
 
         flex-wrap: wrap;
-
-        gap: 10px;
     }
 
     .nav-links {
@@ -384,14 +358,6 @@ body.light .card:hover {
         font-size: 17px;
     }
 
-    .container {
-        padding: 45px 15px;
-    }
-
-    .info-box {
-        padding: 25px;
-    }
-
     .cards {
         grid-template-columns: 1fr;
     }
@@ -404,10 +370,6 @@ body.light .card:hover {
 
 <body>
 
-<!-- =========================
-     NAVIGATION
-========================= -->
-
 <nav>
 
 <div class="logo">
@@ -416,12 +378,12 @@ body.light .card:hover {
 
 <div class="nav-links">
 
-<a href="#">
+<a href="index.html" class="active">
 🏠 Startseite
 </a>
 
-<a href="#was-ist">
-❓ Über uns
+<a href="spiele.html">
+🎮 Spiele
 </a>
 
 <a
@@ -446,10 +408,6 @@ id="themeButton">
 </nav>
 
 
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero">
 
 <div class="hero-content">
@@ -466,7 +424,7 @@ gemeinsame Abenteuer und jede Menge Spaß.
 
 <a
 class="discord-button"
-href="https://discord.gg/DEIN-LINK"
+href="https://discord.gg/Link Kommt bald!"
 target="_blank"
 rel="noopener noreferrer">
 
@@ -479,16 +437,9 @@ rel="noopener noreferrer">
 </section>
 
 
-<!-- =========================
-     HAUPTINHALT
-========================= -->
-
 <main class="container">
 
-
-<div
-class="info-box"
-id="was-ist">
+<div class="info-box">
 
 <h2>
 🎮 Was ist Spiele Server?
@@ -509,17 +460,12 @@ eine gute Zeit haben kann.
 
 <p>
 Auf unserem Discord kannst du dich mit anderen
-Spielern unterhalten, Mitspieler finden,
-an Events teilnehmen und über unsere
-verschiedenen Spiele sprechen.
+Spielern unterhalten, Mitspieler finden und
+gemeinsam verschiedene Spiele spielen.
 </p>
 
 </div>
 
-
-<!-- =========================
-     VORTEILE
-========================= -->
 
 <div class="cards">
 
@@ -549,7 +495,7 @@ Lieblingsspiele.
 </div>
 
 <h3>
-Aktive Community
+Community
 </h3>
 
 <p>
@@ -568,39 +514,30 @@ Leute kennen.
 </div>
 
 <h3>
-Events & Spaß
+Events
 </h3>
 
 <p>
 Freue dich auf gemeinsame
-Events, Aktionen und
-spannende Spiele.
+Events und spannende
+Spiele.
 </p>
 
 </div>
 
 </div>
 
-
 </main>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
 
-© 2026 Spiele Server
+© Spiele Server 2026 
 
 </footer>
 
 
 <script>
-
-/* =========================
-   DARK / LIGHT MODE
-========================= */
 
 function toggleTheme() {
 
@@ -617,11 +554,6 @@ function toggleTheme() {
     updateThemeButton();
 
 }
-
-
-/* =========================
-   BUTTON AKTUALISIEREN
-========================= */
 
 function updateThemeButton() {
 
@@ -641,11 +573,6 @@ function updateThemeButton() {
     }
 
 }
-
-
-/* =========================
-   THEME LADEN
-========================= */
 
 window.addEventListener("load", function() {
 
@@ -667,4 +594,3 @@ window.addEventListener("load", function() {
 </body>
 
 </html>
-```
