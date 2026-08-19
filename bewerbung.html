@@ -623,7 +623,7 @@ Deine Bewerbung wird anschließend an unser Team gesendet.
 <div class="form-group">
 
 <label for="discord">
-👤 Discord-Name
+👤 Wie ist dein Discord-Name?
 </label>
 
 <input
@@ -638,15 +638,15 @@ required>
 <div class="form-group">
 
 <label for="age">
-🎂 Alter
+🎂 WIe Alt bist du?
 </label>
 
 <input
 type="number"
 id="age"
-min="10"
-max="99"
-placeholder="Dein Alter"
+min="16"
+max="100"
+placeholder="z.B 16"
 required>
 
 </div>
@@ -655,7 +655,7 @@ required>
 <div class="form-group">
 
 <label for="position">
-🛡️ Bewerbung für
+🛡️ Woführ Wilst du dich Bewerben?
 </label>
 
 <select id="position" required>
@@ -692,7 +692,7 @@ Bitte auswählen
 <div class="form-group">
 
 <label for="games">
-🎮 Welche Spiele spielst du?
+🎮 In welchem Bereich wilst du Aktiv sein?
 </label>
 
 <input
@@ -826,7 +826,7 @@ document
 
     const data = {
 
-        username: "Spiele Server – Bewerbungen",
+        username: "Spiele Server - Bewerbungen",
 
         embeds: [
 
@@ -839,25 +839,25 @@ document
                 fields: [
 
                     {
-                        name: "👤 Discord",
+                        name: "Discord-Name",
                         value: discord,
                         inline: true
                     },
 
                     {
-                        name: "🎂 Alter",
+                        name: "Alter",
                         value: age,
                         inline: true
                     },
 
                     {
-                        name: "🛡️ Bewerbung für",
+                        name: "Beweorben für",
                         value: position,
                         inline: false
                     },
 
                     {
-                        name: "🎮 Spiele",
+                        name: "Im Bereich Aktiv Sein",
                         value: games,
                         inline: false
                     },
@@ -878,7 +878,7 @@ document
 
                 footer: {
 
-                    text: "Spiele Server – Bewerbungen"
+                    text: "Spiele Server Bewerbungen"
 
                 },
 
