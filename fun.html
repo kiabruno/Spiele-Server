@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Spiele Server – Fun</title>
+
+<link rel="icon" href="logo.png">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #0f172a;
+
+    color: #f8fafc;
+
+    transition: 0.3s;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 15px 30px;
+
+    background: rgba(15, 23, 42, 0.92);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+    padding: 10px 15px;
+
+    border-radius: 10px;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+
+    background: rgba(255,255,255,0.1);
+}
+
+
+/* =========================
+   THEME BUTTON
+========================= */
+
+.theme-button {
+
+    border: none;
+
+    background: rgba(255,255,255,0.1);
+
+    color: inherit;
+
+    padding: 10px 13px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 360px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #2563eb,
+            #1e293b 40%,
+            #0f172a 75%
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    background: #3b82f6;
+
+    border-radius: 50%;
+
+    filter: blur(150px);
+
+    opacity: 0.22;
+
+    top: -250px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 800px;
+}
+
+.hero h1 {
+
+    font-size: clamp(45px, 8vw, 70px);
+
+    margin: 0 0 20px;
+
+    font-weight: 800;
+}
+
+.hero h1 span {
+
+    color: #60a5fa;
+}
+
+.hero p {
+
+    font-size: 20px;
+
+    color: #cbd5e1;
+
+    line-height: 1.7;
+
+    margin: 0;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 70px 20px;
+}
+
+
+/* =========================
+   FUN GRID
+========================= */
+
+.fun-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(280px, 1fr));
+
+    gap: 25px;
+}
+
+
+/* =========================
+   FUN BOX
+========================= */
+
+.fun-box {
+
+    background: rgba(30, 41, 59, 0.92);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25);
+
+    text-align: center;
+
+    transition: 0.25s;
+}
+
+.fun-box:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,0.35);
+}
+
+.fun-box h2 {
+
+    margin-top: 0;
+
+    font-size: 25px;
+}
+
+.fun-box p {
+
+    color: #cbd5e1;
+
+    line-height: 1.6;
+}
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.fun-button {
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 12px 20px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    margin-top: 10px;
+
+    transition: 0.2s;
+}
+
+.fun-button:hover {
+
+    background: #3b82f6;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   RESULT
+========================= */
+
+.result {
+
+    margin-top: 20px;
+
+    min-height: 40px;
+
+    font-size: 22px;
+
+    font-weight: bold;
+
+    color: #60a5fa;
+}
+
+
+/* =========================
+   INPUT
+========================= */
+
+.fun-input {
+
+    width: 100%;
+
+    padding: 13px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    background: #0f172a;
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.fun-input:focus {
+
+    border-color: #3b82f6;
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+.quiz-question {
+
+    font-size: 19px;
+
+    font-weight: bold;
+
+    margin-bottom: 15px;
+}
+
+.quiz-option {
+
+    display: block;
+
+    width: 100%;
+
+    margin: 8px 0;
+
+    padding: 12px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #0f172a;
+
+    color: white;
+
+    cursor: pointer;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+.quiz-option:hover {
+
+    background: #2563eb;
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light {
+
+    background: #f1f5f9;
+
+    color: #0f172a;
+}
+
+body.light nav {
+
+    background: rgba(255,255,255,0.92);
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+body.light .hero {
+
+    background:
+        radial-gradient(
+            circle at top,
+            #93c5fd,
+            #e0f2fe 45%,
+            #f1f5f9 75%
+        );
+}
+
+body.light .hero p {
+
+    color: #475569;
+}
+
+body.light .fun-box {
+
+    background: rgba(255,255,255,0.92);
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+}
+
+body.light .fun-box p {
+
+    color: #475569;
+}
+
+body.light .fun-input {
+
+    background: white;
+
+    color: #0f172a;
+
+    border: 1px solid #cbd5e1;
+}
+
+body.light .quiz-option {
+
+    background: #e2e8f0;
+
+    color: #0f172a;
+}
+
+body.light .quiz-option:hover {
+
+    background: #93c5fd;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #94a3b8;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+    nav {
+
+        padding: 12px 15px;
+
+        flex-wrap: wrap;
+    }
+
+    .logo {
+
+        width: 100%;
+
+        text-align: center;
+
+        margin-bottom: 5px;
+    }
+
+    .nav-links {
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+
+        font-size: 14px;
+
+        padding: 8px 10px;
+    }
+
+    .hero {
+
+        min-height: 330px;
+
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+
+        font-size: 45px;
+    }
+
+    .hero p {
+
+        font-size: 17px;
+    }
+
+    .container {
+
+        padding: 50px 15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+<div class="logo">
+🎮 Spiele Server
+</div>
+
+
+<div class="nav-links">
+
+<a href="index.html">
+🏠 Startseite
+</a>
+
+<a href="spiele.html">
+🎮 Spiele
+</a>
+
+<a href="news.html">
+📣 News
+</a>
+
+<a href="team.html">
+👥 Team
+</a>
+
+<a href="bewerbung.html">
+📝 Bewerbung
+</a>
+
+<a href="fun.html" class="active">
+🎰 Fun
+</a>
+
+<a href="regeln.html">
+📜 Regeln
+</a>
+
+<a
+href="https://discord.gg/VDNRRT3hnj"
+target="_blank"
+rel="noopener noreferrer">
+
+💬 Discord
+
+</a>
+
+<button
+class="theme-button"
+onclick="toggleTheme()"
+id="themeButton">
+
+🌙
+
+</button>
+
+</div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+🎰 <span>Fun</span>
+</h1>
+
+<p>
+Langeweile? Hier findest du ein paar kleine Spiele
+und lustige Sachen für zwischendurch. 😎
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     FUN
+========================= -->
+
+<main class="container">
+
+<div class="fun-grid">
+
+
+<!-- WÜRFEL -->
+
+<div class="fun-box">
+
+<h2>
+🎲 Würfel
+</h2>
+
+<p>
+Wirf einen normalen sechsseitigen Würfel.
+</p>
+
+<button
+class="fun-button"
+onclick="rollDice()">
+
+🎲 Würfeln
+
+</button>
+
+<div
+class="result"
+id="diceResult">
+
+</div>
+
+</div>
+
+
+<!-- MÜNZWURF -->
+
+<div class="fun-box">
+
+<h2>
+🪙 Münzwurf
+</h2>
+
+<p>
+Kopf oder Zahl?
+</p>
+
+<button
+class="fun-button"
+onclick="flipCoin()">
+
+🪙 Werfen
+
+</button>
+
+<div
+class="result"
+id="coinResult">
+
+</div>
+
+</div>
+
+
+<!-- ZUFALLSZAHL -->
+
+<div class="fun-box">
+
+<h2>
+🎯 Zufallszahl
+</h2>
+
+<p>
+Eine zufällige Zahl zwischen 1 und 100.
+</p>
+
+<button
+class="fun-button"
+onclick="randomNumber()">
+
+🎯 Generieren
+
+</button>
+
+<div
+class="result"
+id="numberResult">
+
+</div>
+
+</div>
+
+
+<!-- ZAHL ERRATEN -->
+
+<div class="fun-box">
+
+<h2>
+🔢 Zahl erraten
+</h2>
+
+<p>
+Ich denke an eine Zahl zwischen 1 und 100.
+Kannst du sie erraten?
+</p>
+
+<input
+type="number"
+id="guessInput"
+class="fun-input"
+placeholder="Deine Zahl"
+min="1"
+max="100">
+
+<button
+class="fun-button"
+onclick="guessNumber()">
+
+🔍 Raten
+
+</button>
+
+<div
+class="result"
+id="guessResult">
+
+</div>
+
+</div>
+
+
+<!-- FUN SPRUCH -->
+
+<div class="fun-box">
+
+<h2>
+😄 Fun-Spruch
+</h2>
+
+<p>
+Brauchst du etwas Unterhaltung?
+</p>
+
+<button
+class="fun-button"
+onclick="randomJoke()">
+
+😂 Spruch anzeigen
+
+</button>
+
+<div
+class="result"
+id="jokeResult">
+
+</div>
+
+</div>
+
+
+<!-- QUIZ -->
+
+<div class="fun-box">
+
+<h2>
+🧠 Gaming Quiz
+</h2>
+
+<div
+class="quiz-question"
+id="quizQuestion">
+
+Lade Frage...
+
+</div>
+
+<div id="quizOptions">
+
+</div>
+
+<div
+class="result"
+id="quizResult">
+
+</div>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+© Spiele Server 2026
+
+</footer>
+
+
+<script>
+
+/* =========================
+   WÜRFEL
+========================= */
+
+function rollDice() {
+
+    const number =
+        Math.floor(Math.random() * 6) + 1;
+
+    document.getElementById(
+        "diceResult"
+    ).textContent =
+        "🎲 Du hast eine " + number + " gewürfelt!";
+
+}
+
+
+/* =========================
+   MÜNZWURF
+========================= */
+
+function flipCoin() {
+
+    const result =
+        Math.random() < 0.5
+            ? "Kopf"
+            : "Zahl";
+
+    document.getElementById(
+        "coinResult"
+    ).textContent =
+        result === "Kopf"
+            ? "🪙 Kopf!"
+            : "🪙 Zahl!";
+
+}
+
+
+/* =========================
+   ZUFALLSZAHL
+========================= */
+
+function randomNumber() {
+
+    const number =
+        Math.floor(Math.random() * 100) + 1;
+
+    document.getElementById(
+        "numberResult"
+    ).textContent =
+        "🎯 Deine Zahl: " + number;
+
+}
+
+
+/* =========================
+   ZAHL ERRATEN
+========================= */
+
+let secretNumber =
+    Math.floor(Math.random() * 100) + 1;
+
+
+function guessNumber() {
+
+    const input =
+        document.getElementById(
+            "guessInput"
+        );
+
+    const guess =
+        Number(input.value);
+
+    const result =
+        document.getElementById(
+            "guessResult"
+        );
+
+
+    if (
+        !guess ||
+        guess < 1 ||
+        guess > 100
+    ) {
+
+        result.textContent =
+            "⚠️ Gib eine Zahl zwischen 1 und 100 ein.";
+
+        return;
+
+    }
+
+
+    if (guess === secretNumber) {
+
+        result.textContent =
+            "🎉 Richtig! Du hast die Zahl erraten!";
+
+        secretNumber =
+            Math.floor(Math.random() * 100) + 1;
+
+        input.value = "";
+
+    }
+
+    else if (guess < secretNumber) {
+
+        result.textContent =
+            "⬆️ Meine Zahl ist größer!";
+
+    }
+
+    else {
+
+        result.textContent =
+            "⬇️ Meine Zahl ist kleiner!";
+
+    }
+
+}
+
+
+/* =========================
+   FUN SPRÜCHE
+========================= */
+
+const jokes = [
+
+    "🎮 Ich wollte nur kurz spielen... 6 Stunden später.",
+
+    "😂 Mein PC braucht kein Update. Er braucht Urlaub.",
+
+    "😎 Lag ist keine Ausrede. Lag ist ein Spielstil.",
+
+    "🎮 Noch eine Runde? Natürlich!",
+
+    "😂 Ich bin nicht schlecht. Das Spiel ist einfach unfair.",
+
+    "🔥 Heute wird gezockt!",
+
+    "😴 Nur noch 5 Minuten... sagte ich vor 3 Stunden."
+
+];
+
+
+function randomJoke() {
+
+    const joke =
+        jokes[
+            Math.floor(
+                Math.random() * jokes.length
+            )
+        ];
+
+    document.getElementById(
+        "jokeResult"
+    ).textContent =
+        joke;
+
+}
+
+
+/* =========================
+   QUIZ
+========================= */
+
+const quiz = [
+
+    {
+
+        question:
+            "🎮 Welches Spiel ist für den Battle-Royale-Modus bekannt?",
+
+        options: [
+            "Fortnite",
+            "Minecraft",
+            "Tetris"
+        ],
+
+        answer: 0
+
+    },
+
+    {
+
+        question:
+            "🧱 Welches Spiel besteht hauptsächlich aus Blöcken?",
+
+        options: [
+            "Minecraft",
+            "Fortnite",
+            "Rocket League"
+        ],
+
+        answer: 0
+
+    },
+
+    {
+
+        question:
+            "🚗 In welchem Spiel spielt man Fußball mit Autos?",
+
+        options: [
+            "Rocket League",
+            "Minecraft",
+            "Among Us"
+        ],
+
+        answer: 0
+
+    }
+
+];
+
+
+let currentQuiz =
+    Math.floor(
+        Math.random() * quiz.length
+    );
+
+
+function loadQuiz() {
+
+    const question =
+        quiz[currentQuiz];
+
+    document.getElementById(
+        "quizQuestion"
+    ).textContent =
+        question.question;
+
+
+    const options =
+        document.getElementById(
+            "quizOptions"
+        );
+
+    options.innerHTML = "";
+
+
+    question.options.forEach(
+        function(option, index) {
+
+            const button =
+                document.createElement(
+                    "button"
+                );
+
+            button.className =
+                "quiz-option";
+
+            button.textContent =
+                option;
+
+            button.onclick =
+                function() {
+
+                    checkQuiz(index);
+
+                };
+
+            options.appendChild(
+                button
+            );
+
+        }
+    );
+
+}
+
+
+function checkQuiz(index) {
+
+    const result =
+        document.getElementById(
+            "quizResult"
+        );
+
+
+    if (
+        index === quiz[currentQuiz].answer
+    ) {
+
+        result.textContent =
+            "🎉 Richtig!";
+
+    } else {
+
+        result.textContent =
+            "❌ Leider falsch!";
+
+    }
+
+
+    setTimeout(
+        function() {
+
+            currentQuiz =
+                Math.floor(
+                    Math.random() * quiz.length
+                );
+
+            result.textContent = "";
+
+            loadQuiz();
+
+        },
+
+        1200
+    );
+
+}
+
+
+/* =========================
+   DARK / LIGHT MODE
+========================= */
+
+function toggleTheme() {
+
+    document.body.classList.toggle(
+        "light"
+    );
+
+
+    const isLight =
+        document.body.classList.contains(
+            "light"
+        );
+
+
+    localStorage.setItem(
+
+        "spieleServerTheme",
+
+        isLight
+            ? "light"
+            : "dark"
+
+    );
+
+
+    updateThemeButton();
+
+}
+
+
+function updateThemeButton() {
+
+    const button =
+        document.getElementById(
+            "themeButton"
+        );
+
+
+    if (
+        document.body.classList.contains(
+            "light"
+        )
+    ) {
+
+        button.textContent =
+            "☀️";
+
+    }
+
+    else {
+
+        button.textContent =
+            "🌙";
+
+    }
+
+}
+
+
+/* =========================
+   THEME LADEN
+========================= */
+
+window.addEventListener(
+
+    "load",
+
+    function() {
+
+        const savedTheme =
+            localStorage.getItem(
+                "spieleServerTheme"
+            );
+
+
+        if (
+            savedTheme === "light"
+        ) {
+
+            document.body
+            .classList
+            .add("light");
+
+        }
+
+
+        updateThemeButton();
+
+        loadQuiz();
+
+    }
+
+);
+
+</script>
+
+</body>
+
+</html>
