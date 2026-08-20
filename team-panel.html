@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Spiele Server – Team Panel</title>
+
+<link rel="icon" href="logo.png">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #0f172a;
+
+    color: #f8fafc;
+
+    transition: 0.3s;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 15px 30px;
+
+    background: rgba(15, 23, 42, 0.92);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+
+    font-size: 25px;
+
+    font-weight: bold;
+}
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+.nav-links a {
+
+    color: inherit;
+
+    text-decoration: none;
+
+    padding: 10px 15px;
+
+    border-radius: 10px;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+
+    background: rgba(255,255,255,0.1);
+}
+
+
+/* =========================
+   THEME
+========================= */
+
+.theme-button {
+
+    border: none;
+
+    background: rgba(255,255,255,0.1);
+
+    color: inherit;
+
+    padding: 10px 13px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+
+    min-height: 330px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 60px 20px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #2563eb,
+            #1e293b 40%,
+            #0f172a 75%
+        );
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.hero::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    background: #3b82f6;
+
+    border-radius: 50%;
+
+    filter: blur(150px);
+
+    opacity: 0.22;
+
+    top: -250px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+}
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+}
+
+.hero h1 {
+
+    font-size: clamp(40px, 8vw, 65px);
+
+    margin: 0 0 15px;
+
+    font-weight: 800;
+}
+
+.hero h1 span {
+
+    color: #60a5fa;
+}
+
+.hero p {
+
+    font-size: 19px;
+
+    color: #cbd5e1;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 60px 20px;
+}
+
+
+/* =========================
+   PANEL GRID
+========================= */
+
+.panel-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(260px, 1fr));
+
+    gap: 25px;
+}
+
+
+/* =========================
+   PANEL BOX
+========================= */
+
+.panel-box {
+
+    background: rgba(30, 41, 59, 0.92);
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25);
+
+    transition: 0.25s;
+}
+
+.panel-box:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 20px 45px rgba(37,99,235,0.18);
+}
+
+.panel-box h2 {
+
+    margin-top: 0;
+
+    font-size: 25px;
+}
+
+.panel-box p {
+
+    color: #cbd5e1;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.panel-button {
+
+    width: 100%;
+
+    border: none;
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    transition: 0.2s;
+}
+
+.panel-button:hover {
+
+    background: #3b82f6;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(0,0,0,0.75);
+
+    backdrop-filter: blur(10px);
+
+    padding: 20px;
+}
+
+.login-box {
+
+    width: 100%;
+
+    max-width: 400px;
+
+    background: #1e293b;
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,0.5);
+}
+
+.login-box h2 {
+
+    margin-top: 0;
+}
+
+.login-box p {
+
+    color: #cbd5e1;
+
+    line-height: 1.6;
+}
+
+.login-box input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin: 10px 0;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    background: #0f172a;
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.login-box button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+.login-box button:hover {
+
+    background: #3b82f6;
+}
+
+.login-error {
+
+    color: #f87171;
+
+    min-height: 22px;
+
+    margin-top: 10px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light {
+
+    background: #f1f5f9;
+
+    color: #0f172a;
+}
+
+body.light nav {
+
+    background: rgba(255,255,255,0.92);
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+body.light .hero {
+
+    background:
+        radial-gradient(
+            circle at top,
+            #93c5fd,
+            #e0f2fe 45%,
+            #f1f5f9 75%
+        );
+}
+
+body.light .hero p {
+
+    color: #475569;
+}
+
+body.light .panel-box {
+
+    background: rgba(255,255,255,0.92);
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+}
+
+body.light .panel-box p {
+
+    color: #475569;
+}
+
+body.light .login-box {
+
+    background: white;
+
+    color: #0f172a;
+}
+
+body.light .login-box p {
+
+    color: #475569;
+}
+
+body.light .login-box input {
+
+    background: #f8fafc;
+
+    color: #0f172a;
+
+    border: 1px solid #cbd5e1;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    color: #94a3b8;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+    nav {
+
+        padding: 12px 15px;
+
+        flex-wrap: wrap;
+    }
+
+    .logo {
+
+        width: 100%;
+
+        text-align: center;
+
+        margin-bottom: 5px;
+    }
+
+    .nav-links {
+
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+
+        font-size: 14px;
+
+        padding: 8px 10px;
+    }
+
+    .hero {
+
+        min-height: 300px;
+
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+
+        font-size: 42px;
+    }
+
+    .container {
+
+        padding: 45px 15px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+<div class="logo">
+🎮 Spiele Server
+</div>
+
+
+<div class="nav-links">
+
+<a href="index.html">
+🏠 Startseite
+</a>
+
+<a href="regeln.html">
+📜 Regeln
+</a>
+
+<a href="spiele.html">
+🎮 Spiele
+</a>
+
+<a href="news.html">
+📣 News
+</a>
+
+<a href="team.html">
+👥 Team
+</a>
+
+<a href="bewerbung.html">
+📝 Bewerbung
+</a>
+
+<a href="fun.html">
+🎰 Fun
+</a>
+
+<a
+href="https://discord.gg/VDNRRT3hnj"
+target="_blank"
+rel="noopener noreferrer">
+
+💬 Discord
+
+</a>
+
+<button
+class="theme-button"
+onclick="toggleTheme()"
+id="themeButton">
+
+🌙
+
+</button>
+
+</div>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>
+🔐 Team <span>Panel</span>
+</h1>
+
+<p>
+Willkommen im internen Bereich von Spiele Server.
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PANEL
+========================= -->
+
+<main class="container">
+
+<div class="panel-grid">
+
+
+<div class="panel-box">
+
+<h2>
+📋 Bewerbungen
+</h2>
+
+<p>
+Hier kannst du später eingegangene
+Team-Bewerbungen verwalten.
+</p>
+
+<button
+class="panel-button"
+onclick="alert('📋 Bewerbungsverwaltung kommt noch!')">
+
+📋 Bewerbungen öffnen
+
+</button>
+
+</div>
+
+
+<div class="panel-box">
+
+<h2>
+📰 News verwalten
+</h2>
+
+<p>
+Hier können später News für die Webseite
+erstellt und bearbeitet werden.
+</p>
+
+<button
+class="panel-button"
+onclick="alert('📰 News-Verwaltung kommt noch!')">
+
+📰 News verwalten
+
+</button>
+
+</div>
+
+
+<div class="panel-box">
+
+<h2>
+👥 Team verwalten
+</h2>
+
+<p>
+Teammitglieder hinzufügen, bearbeiten
+oder entfernen.
+</p>
+
+<button
+class="panel-button"
+onclick="alert('👥 Team-Verwaltung kommt noch!')">
+
+👥 Team verwalten
+
+</button>
+
+</div>
+
+
+<div class="panel-box">
+
+<h2>
+⚙️ Einstellungen
+</h2>
+
+<p>
+Weitere Einstellungen für den internen
+Team-Bereich.
+</p>
+
+<button
+class="panel-button"
+onclick="alert('⚙️ Einstellungen kommen noch!')">
+
+⚙️ Einstellungen
+
+</button>
+
+</div>
+
+
+</div>
+
+</main>
+
+
+<footer>
+
+© Spiele Server 2026
+
+</footer>
+
+
+<!-- =========================
+     PASSWORT
+========================= -->
+
+<div
+class="login-overlay"
+id="loginOverlay">
+
+<div class="login-box">
+
+<h2>
+🔐 Team-Anmeldung
+</h2>
+
+<p>
+Dieser Bereich ist nur für Teammitglieder.
+Bitte gib das Team-Passwort ein.
+</p>
+
+<input
+type="password"
+id="passwordInput"
+placeholder="Team-Passwort"
+autocomplete="off">
+
+<button
+onclick="checkPassword()">
+
+🔓 Anmelden
+
+</button>
+
+<div
+class="login-error"
+id="loginError">
+</div>
+
+</div>
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   PASSWORT
+========================= */
+
+const TEAM_PASSWORD = "4155";
+
+
+function checkPassword() {
+
+    const input =
+        document.getElementById(
+            "passwordInput"
+        );
+
+    const error =
+        document.getElementById(
+            "loginError"
+        );
+
+    if (
+        input.value === TEAM_PASSWORD
+    ) {
+
+        document
+        .getElementById(
+            "loginOverlay"
+        )
+        .style.display = "none";
+
+        sessionStorage.setItem(
+            "teamLoggedIn",
+            "true"
+        );
+
+    } else {
+
+        error.textContent =
+            "❌ Dieses Passwort ist Falsch!";
+
+        input.value = "";
+
+        input.focus();
+
+    }
+
+}
+
+
+/* =========================
+   ENTER-TASTE
+========================= */
+
+document
+.getElementById("passwordInput")
+.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Enter") {
+
+            checkPassword();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   LOGIN BEIM ÖFFNEN
+========================= */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        const loggedIn =
+            sessionStorage.getItem(
+                "teamLoggedIn"
+            );
+
+
+        if (
+            loggedIn === "true"
+        ) {
+
+            document
+            .getElementById(
+                "loginOverlay"
+            )
+            .style.display = "none";
+
+        } else {
+
+            document
+            .getElementById(
+                "loginOverlay"
+            )
+            .style.display = "flex";
+
+            document
+            .getElementById(
+                "passwordInput"
+            )
+            .focus();
+
+        }
+
+
+        updateThemeButton();
+
+    }
+);
+
+
+/* =========================
+   DARK / LIGHT MODE
+========================= */
+
+function toggleTheme() {
+
+    document.body.classList.toggle(
+        "light"
+    );
+
+    const isLight =
+        document.body.classList.contains(
+            "light"
+        );
+
+
+    localStorage.setItem(
+
+        "spieleServerTheme",
+
+        isLight
+            ? "light"
+            : "dark"
+
+    );
+
+
+    updateThemeButton();
+
+}
+
+
+function updateThemeButton() {
+
+    const button =
+        document.getElementById(
+            "themeButton"
+        );
+
+
+    if (
+        document.body.classList.contains(
+            "light"
+        )
+    ) {
+
+        button.textContent =
+            "☀️";
+
+    } else {
+
+        button.textContent =
+            "🌙";
+
+    }
+
+}
+
+</script>
+
+</body>
+
+</html>
