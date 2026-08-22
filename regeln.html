@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Regeln – Spiele Server</title>
+
+<link rel="icon" href="logo.png">
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: #f8fafc;
+    transition: 0.3s;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 30px;
+
+    background: rgba(15, 23, 42, 0.92);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-links a {
+    color: inherit;
+    text-decoration: none;
+
+    padding: 10px 15px;
+
+    border-radius: 10px;
+
+    transition: 0.2s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background: rgba(255,255,255,0.1);
+}
+
+/* =========================
+   THEME
+========================= */
+
+.theme-button {
+    border: none;
+
+    background: rgba(255,255,255,0.1);
+    color: inherit;
+
+    padding: 10px 13px;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.page-header {
+    text-align: center;
+
+    padding: 90px 20px 60px;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #2563eb,
+            #1e293b 40%,
+            #0f172a 75%
+        );
+}
+
+.page-header h1 {
+    font-size: clamp(40px, 7vw, 70px);
+
+    margin: 0 0 20px;
+
+    font-weight: 800;
+}
+
+.page-header h1 span {
+    color: #60a5fa;
+}
+
+.page-header p {
+    max-width: 700px;
+
+    margin: auto;
+
+    color: #cbd5e1;
+
+    font-size: 19px;
+
+    line-height: 1.7;
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 70px 20px;
+}
+
+.rules-intro {
+    background: #1e293b;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    margin-bottom: 30px;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25);
+}
+
+.rules-intro h2 {
+    margin-top: 0;
+
+    font-size: 30px;
+}
+
+.rules-intro p {
+    color: #cbd5e1;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+/* =========================
+   RULE CARDS
+========================= */
+
+.rules {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 20px;
+}
+
+.rule {
+    background: #1e293b;
+
+    padding: 30px;
+
+    border-radius: 18px;
+
+    border: 1px solid rgba(255,255,255,0.06);
+
+    transition: 0.25s;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.18);
+}
+
+.rule:hover {
+    transform: translateY(-5px);
+
+    background: #263449;
+}
+
+.rule-icon {
+    font-size: 42px;
+
+    margin-bottom: 12px;
+}
+
+.rule h3 {
+    margin: 8px 0 12px;
+
+    font-size: 21px;
+}
+
+.rule p {
+    margin: 0;
+
+    color: #94a3b8;
+
+    line-height: 1.7;
+
+    font-size: 16px;
+}
+
+/* =========================
+   CONSEQUENCES
+========================= */
+
+.warning-box {
+    margin-top: 30px;
+
+    background: #1e293b;
+
+    padding: 35px;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(96,165,250,0.25);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.25);
+}
+
+.warning-box h2 {
+    margin-top: 0;
+
+    font-size: 28px;
+}
+
+.warning-box p {
+    color: #cbd5e1;
+
+    line-height: 1.8;
+
+    font-size: 17px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+
+    padding: 30px;
+
+    color: #94a3b8;
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light {
+    background: #f1f5f9;
+
+    color: #0f172a;
+}
+
+body.light nav {
+    background: rgba(255,255,255,0.92);
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+body.light .page-header {
+    background:
+        radial-gradient(
+            circle at top,
+            #93c5fd,
+            #e0f2fe 45%,
+            #f1f5f9 75%
+        );
+}
+
+body.light .page-header p {
+    color: #475569;
+}
+
+body.light .rules-intro,
+body.light .rule,
+body.light .warning-box {
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.08);
+}
+
+body.light .rules-intro p,
+body.light .warning-box p {
+    color: #475569;
+}
+
+body.light .rule p {
+    color: #64748b;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 750px) {
+
+    nav {
+        padding: 12px 15px;
+
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        width: 100%;
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+
+        padding: 8px 10px;
+    }
+
+    .page-header {
+        padding: 60px 20px 45px;
+    }
+
+    .page-header p {
+        font-size: 17px;
+    }
+
+    .rules {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+<div class="logo">
+🎮 Spiele Server
+</div>
+
+<div class="nav-links">
+
+<a href="index.html">
+🏠 Startseite
+</a>
+
+<a href="regeln.html" class="active">
+📜 Regeln
+</a>
+
+<a href="spiele.html">
+🎮 Spiele
+</a>
+
+<a href="news.html">
+📣 News
+</a>
+
+<a href="team.html">
+👥 Team
+</a>
+
+<a href="fun.html">
+🎰 Fun
+</a>
+
+<a
+href="https://dcserver.link/spiele-server"
+target="_blank"
+rel="noopener noreferrer">
+
+💬 Discord
+
+</a>
+
+<button
+class="theme-button"
+onclick="toggleTheme()"
+id="themeButton">
+
+🌙
+
+</button>
+
+</div>
+
+</nav>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<section class="page-header">
+
+<h1>
+📜 Unsere <span>Regeln</span>
+</h1>
+
+<p>
+Damit sich jeder auf unserem Spiele Server
+wohlfühlt, gibt es ein paar einfache Regeln.
+</p>
+
+</section>
+
+
+<!-- =========================
+     CONTENT
+========================= -->
+
+<main class="container">
+
+
+<div class="rules-intro">
+
+<h2>
+🤝 Gemeinsam für eine gute Community
+</h2>
+
+<p>
+Wir möchten eine freundliche und entspannte
+Community aufbauen. Die Regeln sind nicht dazu
+da, euch den Spaß zu nehmen, sondern dafür zu
+sorgen, dass sich alle Mitglieder wohlfühlen
+können.
+</p>
+
+<p>
+Seid respektvoll, habt Spaß und behandelt andere
+so, wie ihr selbst behandelt werden möchtet. ❤️
+</p>
+
+</div>
+
+
+<div class="rules">
+
+
+<div class="rule">
+
+<div class="rule-icon">
+🤝
+</div>
+
+<h3>
+1. Respekt
+</h3>
+
+<p>
+Behandle alle Mitglieder freundlich und
+respektvoll. Beleidigungen, Mobbing und
+persönliche Angriffe sind nicht erlaubt.
+</p>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+🚫
+</div>
+
+<h3>
+2. Kein Spam
+</h3>
+
+<p>
+Kein Nachrichten-, Mention-, Emoji- oder
+Soundboard-Spam. Bitte vermeide auch
+unnötige Wiederholungen.
+</p>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+📢
+</div>
+
+<h3>
+3. Keine Werbung
+</h3>
+
+<p>
+Werbung für andere Server, Communities
+oder eigene Projekte ist nur erlaubt,
+wenn das Team dies vorher genehmigt hat.
+</p>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+🔒
+</div>
+
+<h3>
+4. Privatsphäre
+</h3>
+
+<p>
+Veröffentliche keine privaten Informationen
+von dir oder anderen. Dazu gehören zum
+Beispiel Adressen, Telefonnummern oder
+private Bilder.
+</p>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+🧹
+</div>
+
+<h3>
+5. Keine störenden Inhalte
+</h3>
+
+<p>
+Keine extremen, illegalen oder anderweitig
+ungeeigneten Inhalte. Halte dich außerdem
+an die Regeln der jeweiligen Plattform
+und des Spiels.
+</p>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+🎮
+</div>
+
+<h3>
+6. Fair Play
+</h3>
+
+<p>
+Cheaten, Exploits und das absichtliche
+Ausnutzen von Fehlern zum eigenen Vorteil
+sind nicht erwünscht.
+</p>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+🛡️
+</div>
+
+<h3>
+7. Team respektieren
+</h3>
+
+<p>
+Die Entscheidungen des Server-Teams sind
+zu respektieren. Bei Problemen kannst du
+dich ruhig an ein Teammitglied wenden.
+</p>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+📌
+</div>
+
+<h3>
+8. Richtige Channels nutzen
+</h3>
+
+<p>
+Nutze die vorgesehenen Channels für ihre
+jeweiligen Themen. So bleibt der Server
+übersichtlich und angenehm für alle.
+</p>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+⚠️
+</div>
+
+<h3>
+9. Keine Regelumgehung
+</h3>
+
+<p>
+Versuche nicht, Regeln durch alternative
+Accounts, Umgehungen oder andere Tricks
+zu umgehen.
+</p>
+
+</div>
+
+
+<div class="rule">
+
+<div class="rule-icon">
+❤️
+</div>
+
+<h3>
+10. Habt Spaß!
+</h3>
+
+<p>
+Das Wichtigste: Seid nett zueinander,
+spielt gemeinsam und habt Spaß!
+🎉
+</p>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     CONSEQUENCES
+========================= -->
+
+<div class="warning-box">
+
+<h2>
+⚖️ Konsequenzen bei Regelverstößen
+</h2>
+
+<p>
+Bei Regelverstößen kann das Team je nach
+Situation eine Verwarnung, einen Timeout,
+einen Kick oder einen Bann aussprechen.
+</p>
+
+<p>
+Das Team behält sich vor, bei besonderen
+Situationen angemessen zu handeln.
+</p>
+
+</div>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+© Spiele Server 2026
+
+</footer>
+
+
+<!-- =========================
+     THEME SCRIPT
+========================= -->
+
+<script>
+
+function toggleTheme() {
+
+    document.body.classList.toggle("light");
+
+    const isLight =
+        document.body.classList.contains("light");
+
+    localStorage.setItem(
+        "spieleServerTheme",
+        isLight ? "light" : "dark"
+    );
+
+    updateThemeButton();
+
+}
+
+
+function updateThemeButton() {
+
+    const button =
+        document.getElementById("themeButton");
+
+    if (
+        document.body.classList.contains("light")
+    ) {
+
+        button.textContent = "☀️";
+
+    } else {
+
+        button.textContent = "🌙";
+
+    }
+
+}
+
+
+window.addEventListener("load", function() {
+
+    const savedTheme =
+        localStorage.getItem("spieleServerTheme");
+
+    if (savedTheme === "light") {
+
+        document.body.classList.add("light");
+
+    }
+
+    updateThemeButton();
+
+});
+
+</script>
+
+</body>
+
+</html>
