@@ -281,6 +281,21 @@ nav {
 }
 
 /* =========================
+   OPTIONAL HINWEIS
+========================= */
+
+.optional-hint {
+
+    display: block;
+
+    margin-top: 7px;
+
+    color: #94a3b8;
+
+    font-size: 13px;
+}
+
+/* =========================
    BUTTON
 ========================= */
 
@@ -619,7 +634,28 @@ required>
 
 </div>
 
-<!-- FRAGE 2 -->
+
+<!-- FRAGE 2 - E-MAIL -->
+
+<div class="form-group">
+
+<label for="email">
+📧 Wie ist deine E-Mail-Adresse?
+</label>
+
+<input
+type="email"
+id="email"
+placeholder="z.B. max@beispiel.de">
+
+<span class="optional-hint">
+Optional – du musst keine E-Mail-Adresse angeben.
+</span>
+
+</div>
+
+
+<!-- FRAGE 3 -->
 
 <div class="form-group">
 
@@ -635,7 +671,8 @@ required>
 
 </div>
 
-<!-- FRAGE 3 -->
+
+<!-- FRAGE 4 -->
 
 <div class="form-group">
 
@@ -653,7 +690,8 @@ required>
 
 </div>
 
-<!-- FRAGE 4 -->
+
+<!-- FRAGE 5 -->
 
 <div class="form-group">
 
@@ -691,7 +729,8 @@ Bitte auswählen
 
 </div>
 
-<!-- FRAGE 5 -->
+
+<!-- FRAGE 6 -->
 
 <div class="form-group">
 
@@ -707,7 +746,8 @@ required>
 
 </div>
 
-<!-- FRAGE 6 -->
+
+<!-- FRAGE 7 -->
 
 <div class="form-group">
 
@@ -723,22 +763,24 @@ required>
 
 </div>
 
-<!-- FRAGE 7 -->
+
+<!-- FRAGE 8 -->
 
 <div class="form-group">
 
 <label for="reason">
-💬 Warum möchtest du ins Team?
+💬 Warum möchtest du dich als ... Bewerben?
 </label>
 
 <textarea
 id="reason"
-placeholder="Erzähle uns etwas über dich und warum du ins Team möchtest..."
+placeholder="Erzähle uns warum du dich als ... Bewerben willst..."
 required></textarea>
 
 </div>
 
-<!-- FRAGE 8 -->
+
+<!-- FRAGE 9 -->
 
 <div class="form-group">
 
@@ -752,6 +794,7 @@ placeholder="Erzähle uns etwas über deine Stärken und Schwächen..."
 required></textarea>
 
 </div>
+
 
 <!-- ABSENDEN -->
 
@@ -803,6 +846,13 @@ document
 
     const discord =
         document.getElementById("discord")
+        .value
+        .trim();
+
+    /* E-MAIL – OPTIONAL */
+
+    const email =
+        document.getElementById("email")
         .value
         .trim();
 
@@ -890,6 +940,17 @@ document
 
                         inline:
                             true
+                    },
+
+                    {
+                        name:
+                            "E-Mail-Adresse:",
+
+                        value:
+                            email || "Keine E-Mail angegeben",
+
+                        inline:
+                            false
                     },
 
                     {
@@ -1029,7 +1090,7 @@ document
             "message success";
 
         message.textContent =
-            "✅ Deine Bewerbung wurde erfolgreich gesendet!";
+            "✅ Deine Bewerbung wurde erfolgreich gesendet! Bitte warte auf Rückmeldung!";
 
 
         document
@@ -1166,4 +1227,3 @@ window.addEventListener(
 </body>
 
 </html>
-```
