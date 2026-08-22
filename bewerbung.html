@@ -10,8 +10,6 @@
 
 <link rel="icon" href="logo.png">
 
-</head>
-    
 <style>
 
 * {
@@ -33,16 +31,146 @@ body {
 }
 
 /* =========================
+   PASSWORT SCHUTZ
+========================= */
+
+#passwordScreen {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 20px;
+
+    background: #0f172a;
+}
+
+.password-box {
+
+    width: 100%;
+
+    max-width: 450px;
+
+    padding: 35px;
+
+    text-align: center;
+
+    background: #1e293b;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.4);
+}
+
+.password-box h2 {
+
+    margin-top: 0;
+
+    font-size: 28px;
+}
+
+.password-box p {
+
+    color: #cbd5e1;
+
+    line-height: 1.6;
+}
+
+.password-box input {
+
+    width: 100%;
+
+    padding: 14px;
+
+    margin: 15px 0;
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 10px;
+
+    background: #0f172a;
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+.password-box input:focus {
+
+    border-color: #3b82f6;
+
+    box-shadow:
+        0 0 0 3px rgba(59,130,246,0.15);
+}
+
+.password-box button {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.password-box button:hover {
+
+    background: #3b82f6;
+
+    transform: translateY(-2px);
+}
+
+#passwordError {
+
+    color: #f87171;
+
+    margin-bottom: 0;
+
+    font-weight: bold;
+}
+
+/* =========================
    NAVIGATION
 ========================= */
 
 nav {
+
     position: sticky;
+
     top: 0;
+
     z-index: 1000;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     padding: 15px 30px;
@@ -55,17 +183,23 @@ nav {
 }
 
 .logo {
+
     font-size: 25px;
+
     font-weight: bold;
 }
 
 .nav-links {
+
     display: flex;
+
     align-items: center;
+
     gap: 8px;
 }
 
 .nav-links a {
+
     color: inherit;
 
     text-decoration: none;
@@ -79,6 +213,7 @@ nav {
 
 .nav-links a:hover,
 .nav-links a.active {
+
     background: rgba(255,255,255,0.1);
 }
 
@@ -87,6 +222,7 @@ nav {
 ========================= */
 
 .theme-button {
+
     border: none;
 
     background: rgba(255,255,255,0.1);
@@ -107,6 +243,7 @@ nav {
 ========================= */
 
 .hero {
+
     min-height: 380px;
 
     display: flex;
@@ -133,11 +270,13 @@ nav {
 }
 
 .hero::before {
+
     content: "";
 
     position: absolute;
 
     width: 500px;
+
     height: 500px;
 
     background: #3b82f6;
@@ -156,6 +295,7 @@ nav {
 }
 
 .hero-content {
+
     position: relative;
 
     z-index: 2;
@@ -164,6 +304,7 @@ nav {
 }
 
 .hero h1 {
+
     font-size: clamp(45px, 8vw, 70px);
 
     margin: 0 0 20px;
@@ -172,10 +313,12 @@ nav {
 }
 
 .hero h1 span {
+
     color: #60a5fa;
 }
 
 .hero p {
+
     font-size: 20px;
 
     color: #cbd5e1;
@@ -190,6 +333,7 @@ nav {
 ========================= */
 
 .container {
+
     max-width: 850px;
 
     margin: auto;
@@ -198,6 +342,7 @@ nav {
 }
 
 .form-box {
+
     background: rgba(30, 41, 59, 0.92);
 
     padding: 35px;
@@ -213,12 +358,14 @@ nav {
 }
 
 .form-box h2 {
+
     margin-top: 0;
 
     font-size: 30px;
 }
 
 .form-box p {
+
     color: #cbd5e1;
 
     line-height: 1.7;
@@ -229,10 +376,12 @@ nav {
 ========================= */
 
 .form-group {
+
     margin-bottom: 22px;
 }
 
 .form-group label {
+
     display: block;
 
     margin-bottom: 8px;
@@ -452,6 +601,39 @@ body.light .form-group textarea {
 }
 
 /* =========================
+   LIGHT MODE - PASSWORT
+========================= */
+
+body.light #passwordScreen {
+
+    background: #f1f5f9;
+}
+
+body.light .password-box {
+
+    background: white;
+
+    border: 1px solid #e2e8f0;
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,0.12);
+}
+
+body.light .password-box p {
+
+    color: #475569;
+}
+
+body.light .password-box input {
+
+    background: white;
+
+    color: #0f172a;
+
+    border: 1px solid #cbd5e1;
+}
+
+/* =========================
    MOBILE
 ========================= */
 
@@ -516,6 +698,11 @@ body.light .form-group textarea {
         padding: 25px;
     }
 
+    .password-box {
+
+        padding: 25px;
+    }
+
 }
 
 </style>
@@ -523,6 +710,44 @@ body.light .form-group textarea {
 </head>
 
 <body>
+
+<!-- =========================
+     PASSWORT SCHUTZ
+========================= -->
+
+<div id="passwordScreen">
+
+    <div class="password-box">
+
+        <h2>
+            🔒 Geschützter Bereich
+        </h2>
+
+        <p>
+            Bitte gib das Passwort ein, um die Bewerbung zu öffnen.
+        </p>
+
+        <input
+            type="password"
+            id="pagePassword"
+            placeholder="Passwort eingeben"
+            onkeydown="if(event.key === 'Enter') checkPassword()"
+        >
+
+        <button
+            type="button"
+            onclick="checkPassword()">
+
+            🔓 Bewerbung öffnen
+
+        </button>
+
+        <p id="passwordError"></p>
+
+    </div>
+
+</div>
+
 
 <!-- =========================
      NAVIGATION
@@ -578,6 +803,7 @@ id="themeButton">
 
 </nav>
 
+
 <!-- =========================
      HERO
 ========================= -->
@@ -599,6 +825,7 @@ Dann fülle einfach die Bewerbung aus.
 
 </section>
 
+
 <!-- =========================
      FORMULAR
 ========================= -->
@@ -617,6 +844,7 @@ Deine Bewerbung wird anschließend an unser Team gesendet.
 </p>
 
 <form id="applicationForm">
+
 
 <!-- FRAGE 1 -->
 
@@ -818,13 +1046,87 @@ id="message">
 
 </main>
 
+
 <footer>
 
 © Spiele Server 2026
 
 </footer>
 
+
 <script>
+
+/* =========================
+   PASSWORT
+========================= */
+
+/*
+   HIER DEIN PASSWORT EINTRAGEN
+*/
+
+const PAGE_PASSWORD = "4155";
+
+
+function checkPassword() {
+
+    const password =
+        document
+        .getElementById("pagePassword")
+        .value;
+
+    const error =
+        document
+        .getElementById("passwordError");
+
+
+    if (password === PAGE_PASSWORD) {
+
+        document
+        .getElementById("passwordScreen")
+        .style
+        .display = "none";
+
+        sessionStorage.setItem(
+            "bewerbungFreigeschaltet",
+            "true"
+        );
+
+    }
+
+    else {
+
+        error.textContent =
+            "❌ Falsches Passwort!";
+
+    }
+
+}
+
+
+/* =========================
+   PASSWORT STATUS LADEN
+========================= */
+
+window.addEventListener(
+    "load",
+    function() {
+
+        if (
+            sessionStorage.getItem(
+                "bewerbungFreigeschaltet"
+            ) === "true"
+        ) {
+
+            document
+            .getElementById("passwordScreen")
+            .style
+            .display = "none";
+
+        }
+
+    }
+);
+
 
 /* =========================
    DISCORD WEBHOOK
@@ -840,64 +1142,89 @@ const DISCORD_WEBHOOK =
 
 document
 .getElementById("applicationForm")
-.addEventListener("submit", async function(event) {
+.addEventListener(
+    "submit",
+    async function(event) {
 
     event.preventDefault();
 
+
     const discord =
-        document.getElementById("discord")
+        document
+        .getElementById("discord")
         .value
         .trim();
+
 
     /* E-MAIL – OPTIONAL */
 
     const email =
-        document.getElementById("email")
+        document
+        .getElementById("email")
         .value
         .trim();
+
 
     const name =
-        document.getElementById("name")
+        document
+        .getElementById("name")
         .value
         .trim();
+
 
     const age =
-        document.getElementById("age")
+        document
+        .getElementById("age")
         .value
         .trim();
+
 
     const position =
-        document.getElementById("position")
+        document
+        .getElementById("position")
         .value;
 
+
     const games =
-        document.getElementById("games")
+        document
+        .getElementById("games")
         .value
         .trim();
+
 
     const activity =
-        document.getElementById("activity")
+        document
+        .getElementById("activity")
         .value
         .trim();
+
 
     const reason =
-        document.getElementById("reason")
+        document
+        .getElementById("reason")
         .value
         .trim();
+
 
     const strengths =
-        document.getElementById("strengths")
+        document
+        .getElementById("strengths")
         .value
         .trim();
 
+
     const button =
-        document.getElementById("submitButton");
+        document
+        .getElementById("submitButton");
+
 
     const message =
-        document.getElementById("message");
+        document
+        .getElementById("message");
 
 
     button.disabled = true;
+
 
     button.textContent =
         "⏳ Wird gesendet...";
@@ -905,6 +1232,7 @@ document
 
     message.className =
         "message";
+
 
     message.textContent =
         "";
@@ -919,6 +1247,7 @@ document
         username:
             "Spiele Server - Bewerbungen",
 
+
         embeds: [
 
             {
@@ -926,12 +1255,15 @@ document
                 title:
                     "📋 Neue Team-Bewerbung",
 
+
                 color:
                     2505830,
+
 
                 fields: [
 
                     {
+
                         name:
                             "Discord-Name:",
 
@@ -940,20 +1272,27 @@ document
 
                         inline:
                             true
+
                     },
 
+
                     {
+
                         name:
                             "E-Mail-Adresse:",
 
                         value:
-                            email || "Keine E-Mail angegeben",
+                            email ||
+                            "Keine E-Mail angegeben",
 
                         inline:
                             false
+
                     },
 
+
                     {
+
                         name:
                             "Echter Name:",
 
@@ -962,9 +1301,12 @@ document
 
                         inline:
                             true
+
                     },
 
+
                     {
+
                         name:
                             "Alter:",
 
@@ -973,9 +1315,12 @@ document
 
                         inline:
                             true
+
                     },
 
+
                     {
+
                         name:
                             "Beworben für:",
 
@@ -984,9 +1329,12 @@ document
 
                         inline:
                             false
+
                     },
 
+
                     {
+
                         name:
                             "Bereich:",
 
@@ -995,9 +1343,12 @@ document
 
                         inline:
                             false
+
                     },
 
+
                     {
+
                         name:
                             "Aktivität:",
 
@@ -1006,9 +1357,12 @@ document
 
                         inline:
                             false
+
                     },
 
+
                     {
+
                         name:
                             "Warum möchtest du ins Team:",
 
@@ -1017,9 +1371,12 @@ document
 
                         inline:
                             false
+
                     },
 
+
                     {
+
                         name:
                             "Stärken und Schwächen:",
 
@@ -1028,14 +1385,27 @@ document
 
                         inline:
                             false
+
                     }
 
                 ],
 
+
                 footer: {
 
                     text:
-                        "Spiele Server - Bewerbungen • " + new Date().toLocaleDateString("de-DE") + " " + new Date().toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" })
+                        "Spiele Server - Bewerbungen • " +
+                        new Date()
+                        .toLocaleDateString("de-DE") +
+                        " " +
+                        new Date()
+                        .toLocaleTimeString(
+                            "de-DE",
+                            {
+                                hour: "2-digit",
+                                minute: "2-digit"
+                            }
+                        )
 
                 }
 
@@ -1062,12 +1432,14 @@ document
                     method:
                         "POST",
 
+
                     headers: {
 
                         "Content-Type":
                             "application/json"
 
                     },
+
 
                     body:
                         JSON.stringify(data)
@@ -1089,6 +1461,7 @@ document
         message.className =
             "message success";
 
+
         message.textContent =
             "✅ Deine Bewerbung wurde erfolgreich gesendet! Bitte warte auf Rückmeldung!";
 
@@ -1097,8 +1470,8 @@ document
         .getElementById("applicationForm")
         .reset();
 
-
     }
+
 
     catch (error) {
 
@@ -1108,6 +1481,7 @@ document
         message.className =
             "message error";
 
+
         message.textContent =
             "❌ Die Bewerbung konnte nicht gesendet werden. Bitte versuche es später erneut. Bewerbe dich sonst im Discord!";
 
@@ -1116,6 +1490,7 @@ document
 
     button.disabled =
         false;
+
 
     button.textContent =
         "📤 Bewerbung absenden";
@@ -1163,7 +1538,8 @@ function toggleTheme() {
 function updateThemeButton() {
 
     const button =
-        document.getElementById(
+        document
+        .getElementById(
             "themeButton"
         );
 
