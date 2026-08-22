@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Datenschutzerklärung - Spiele Server">
+    <title>Datenschutzerklärung | Spiele Server</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+                "Segoe UI", sans-serif;
+            color: #e8ecf7;
+            background: #070914;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Hintergrund */
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -3;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(99, 102, 241, 0.25), transparent 30%),
+                radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.20), transparent 28%),
+                radial-gradient(circle at 50% 90%, rgba(59, 130, 246, 0.18), transparent 35%),
+                #070914;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            opacity: 0.25;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 45px 45px;
+            mask-image: linear-gradient(to bottom, black, transparent);
+        }
+
+        /* Leuchtende Blobs */
+        .orb {
+            position: fixed;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.18;
+            z-index: -1;
+            animation: float 12s ease-in-out infinite alternate;
+        }
+
+        .orb.one {
+            background: #6366f1;
+            top: 5%;
+            left: -100px;
+        }
+
+        .orb.two {
+            background: #a855f7;
+            right: -100px;
+            top: 45%;
+            animation-delay: -4s;
+        }
+
+        .orb.three {
+            background: #2563eb;
+            left: 35%;
+            bottom: -150px;
+            animation-delay: -7s;
+        }
+
+        @keyframes float {
+            from {
+                transform: translateY(-20px) scale(1);
+            }
+            to {
+                transform: translateY(40px) scale(1.15);
+            }
+        }
+
+        /* Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 18px 20px;
+            background: rgba(7, 9, 20, 0.72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .nav {
+            max-width: 1050px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.15rem;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: #818cf8;
+        }
+
+        .back {
+            color: #cbd5e1;
+            text-decoration: none;
+            padding: 9px 16px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            transition: 0.25s;
+            font-size: 0.9rem;
+        }
+
+        .back:hover {
+            color: white;
+            background: rgba(255,255,255,0.08);
+            border-color: rgba(129,140,248,0.5);
+            transform: translateY(-1px);
+        }
+
+        /* Hauptbereich */
+        main {
+            width: min(1050px, calc(100% - 32px));
+            margin: 70px auto 100px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 7px 14px;
+            margin-bottom: 18px;
+            border-radius: 999px;
+            color: #a5b4fc;
+            background: rgba(99,102,241,0.12);
+            border: 1px solid rgba(129,140,248,0.25);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+        }
+
+        h1 {
+            font-size: clamp(2.2rem, 6vw, 4.2rem);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            color: white;
+            margin-bottom: 18px;
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: auto;
+            color: #94a3b8;
+            font-size: 1.05rem;
+        }
+
+        /* Datenschutz-Box */
+        .content {
+            padding: clamp(25px, 5vw, 55px);
+            background: rgba(15, 18, 35, 0.72);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 28px;
+            box-shadow:
+                0 25px 80px rgba(0,0,0,0.35),
+                inset 0 1px 0 rgba(255,255,255,0.04);
+            backdrop-filter: blur(22px);
+            -webkit-backdrop-filter: blur(22px);
+        }
+
+        section {
+            padding: 28px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        section:first-child {
+            padding-top: 0;
+        }
+
+        section:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        h2 {
+            color: white;
+            font-size: 1.45rem;
+            margin-bottom: 14px;
+            letter-spacing: -0.4px;
+        }
+
+        h2::before {
+            content: "";
+            display: inline-block;
+            width: 5px;
+            height: 22px;
+            margin-right: 11px;
+            vertical-align: -3px;
+            border-radius: 5px;
+            background: linear-gradient(180deg, #818cf8, #a855f7);
+        }
+
+        h3 {
+            color: #dbeafe;
+            margin: 20px 0 8px;
+        }
+
+        p {
+            color: #aeb8ca;
+            margin-bottom: 12px;
+        }
+
+        strong {
+            color: #f1f5f9;
+        }
+
+        ul {
+            margin: 12px 0 15px 22px;
+            color: #aeb8ca;
+        }
+
+        li {
+            margin: 7px 0;
+            padding-left: 4px;
+        }
+
+        li::marker {
+            color: #818cf8;
+        }
+
+        a {
+            color: #a5b4fc;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .info {
+            margin-top: 18px;
+            padding: 18px 20px;
+            border-radius: 16px;
+            background: rgba(99,102,241,0.08);
+            border: 1px solid rgba(129,140,248,0.16);
+        }
+
+        .placeholder {
+            color: #fbbf24;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 35px 20px 45px;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: #818cf8;
+        }
+
+        /* Mobile */
+        @media (max-width: 650px) {
+            header {
+                padding: 14px 15px;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .back {
+                padding: 7px 11px;
+                font-size: 0.8rem;
+            }
+
+            main {
+                width: min(100% - 20px, 1050px);
+                margin-top: 45px;
+            }
+
+            .hero {
+                margin-bottom: 35px;
+            }
+
+            .content {
+                border-radius: 20px;
+                padding: 24px 20px;
+            }
+
+            section {
+                padding: 23px 0;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+        }
+
+        /* Seiten-Einblendung */
+        .content,
+        .hero {
+            animation: appear 0.7s ease both;
+        }
+
+        .content {
+            animation-delay: 0.1s;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+    <div class="orb three"></div>
+
+    <header>
+        <nav class="nav">
+            <a class="logo" href="/Spiele-Server/">
+                Spiele<span> Server</span>
+            </a>
+
+            <a class="back" href="/Spiele-Server/">
+                ← Zurück zur Website
+            </a>
+        </nav>
+    </header>
+
+    <main>
+
+        <div class="hero">
+            <div class="badge">🔒 Datenschutz</div>
+
+            <h1>Datenschutzerklärung</h1>
+
+            <p>
+                Informationen darüber, welche personenbezogenen Daten auf
+                unserer Website verarbeitet werden und wie wir damit umgehen.
+            </p>
+        </div>
+
+        <div class="content">
+
+            <section>
+                <h2>1. Allgemeine Hinweise</h2>
+
+                <p>
+                    Der Schutz deiner persönlichen Daten ist uns wichtig.
+                    Wir behandeln deine personenbezogenen Daten vertraulich
+                    und entsprechend den geltenden Datenschutzvorschriften,
+                    insbesondere der Datenschutz-Grundverordnung (DSGVO).
+                </p>
+
+                <p>
+                    Diese Datenschutzerklärung informiert darüber, welche
+                    personenbezogenen Daten bei der Nutzung unserer Website
+                    und insbesondere beim Ausfüllen des Bewerbungsformulars
+                    verarbeitet werden.
+                </p>
+            </section>
+
+            <section>
+                <h2>2. Besuch der Website</h2>
+
+                <p>
+                    Beim Aufrufen unserer Website werden durch den
+                    Hosting-Anbieter GitHub bzw. GitHub Pages technisch
+                    notwendige Daten verarbeitet.
+                </p>
+
+                <p>
+                    Dazu kann insbesondere die IP-Adresse des Besuchers
+                    gehören. GitHub gibt an, dass bei einem Besuch einer
+                    GitHub-Pages-Website die IP-Adresse zu Sicherheitszwecken
+                    protokolliert und gespeichert wird.
+                </p>
+
+                <p>
+                    Die Verarbeitung dient insbesondere der Bereitstellung,
+                    Stabilität und Sicherheit der Website sowie der Abwehr
+                    von Missbrauch und Angriffen.
+                </p>
+
+                <p>
+                    Weitere Informationen zum Datenschutz bei GitHub findest
+                    du in der
+                    <a href="https://docs.github.com/de/site-policy/privacy-policies/github-privacy-statement"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Datenschutzerklärung von GitHub
+                    </a>.
+                </p>
+            </section>
+
+            <section>
+                <h2>3. Bewerbungsformular</h2>
+
+                <p>
+                    Auf unserer Website besteht die Möglichkeit, sich für
+                    eine Position bzw. Tätigkeit innerhalb unseres
+                    Discord-Servers zu bewerben.
+                </p>
+
+                <p>
+                    Wenn du das Bewerbungsformular ausfüllst, können folgende
+                    personenbezogene Daten verarbeitet werden:
+                </p>
+
+                <ul>
+                    <li>Discord-Name</li>
+                    <li>E-Mail-Adresse, sofern du diese freiwillig angibst</li>
+                    <li>Vor- bzw. Nachname</li>
+                    <li>Alter</li>
+                    <li>gewünschter Bewerbungsbereich</li>
+                    <li>gewünschter Aktivitätsbereich</li>
+                    <li>Angaben zur eigenen Aktivität</li>
+                    <li>Begründung für die Bewerbung</li>
+                    <li>weitere freiwillige Angaben</li>
+                </ul>
+
+                <p>
+                    Die Angabe der E-Mail-Adresse ist freiwillig. Wenn du sie
+                    nicht angibst, hat dies grundsätzlich keinen Einfluss auf
+                    die Möglichkeit, dich zu bewerben.
+                </p>
+            </section>
+
+            <section>
+                <h2>5. Zweck der Verarbeitung</h2>
+
+                <p>
+                    Die von dir im Bewerbungsformular eingegebenen Daten
+                    werden ausschließlich dazu verwendet,
+                </p>
+
+                <ul>
+                    <li>deine Bewerbung zu bearbeiten,</li>
+                    <li>deine Eignung für die gewünschte Position zu beurteilen,</li>
+                    <li>
+                        dich bezüglich deiner Bewerbung zu kontaktieren,
+                        sofern du Kontaktdaten angegeben hast,
+                    </li>
+                    <li>
+                        die Bewerbung innerhalb des zuständigen Server-Teams
+                        zu bearbeiten.
+                    </li>
+                </ul>
+
+                <p>
+                    Die Daten werden nicht für Werbung oder Tracking
+                    verwendet.
+                </p>
+
+                <p>
+                    Die Bewerbungsdaten werden gelöscht, sobald sie für die
+                    Bearbeitung der Bewerbung nicht mehr benötigt werden,
+                    sofern keine gesetzlichen Aufbewahrungspflichten
+                    entgegenstehen.
+                </p>
+            </section>
+
+            <section>
+                <h2>4. Weitergabe der Bewerbungsdaten</h2>
+
+                <p>
+                    Die von dir eingegebenen Bewerbungsdaten werden an die
+                    für die Bearbeitung der Bewerbungen zuständigen Personen
+                    innerhalb unseres Teams weitergegeben.
+                </p>
+
+                <p>
+                    Soweit für die Übermittlung oder Speicherung der
+                    Bewerbungsdaten ein externer Dienst eingesetzt wird,
+                    kann eine Verarbeitung durch diesen Dienstleister
+                    erfolgen. In diesem Fall muss der jeweilige Dienst in
+                    dieser Datenschutzerklärung entsprechend berücksichtigt
+                    werden.
+                </p>
+            </section>
+
+            <section>
+                <h2>5. Speicherdauer</h2>
+
+                <p>
+                    Wir speichern Bewerbungsdaten nur so lange, wie dies für
+                    die Bearbeitung der Bewerbung erforderlich ist.
+                </p>
+
+                <p>
+                    Wird eine Bewerbung abgelehnt oder zurückgezogen, werden
+                    die Daten gelöscht, sobald sie für die Bearbeitung nicht
+                    mehr benötigt werden, sofern keine gesetzlichen
+                    Aufbewahrungspflichten entgegenstehen.
+                </p>
+            </section>
+
+            <section>
+                <h2>6. Freiwilligkeit der Angaben</h2>
+
+                <p>
+                    Die Bereitstellung personenbezogener Daten im
+                    Bewerbungsformular erfolgt grundsätzlich freiwillig.
+                </p>
+
+                <p>
+                    Bitte beachte jedoch, dass bestimmte Angaben erforderlich
+                    sein können, damit wir deine Bewerbung bearbeiten können.
+                </p>
+
+                <p>
+                    Freiwillige Angaben müssen nicht gemacht werden.
+                </p>
+            </section>
+
+            <section>
+                <h2>7. Rechtsgrundlage</h2>
+
+                <p>
+                    Die Verarbeitung der Bewerbungsdaten erfolgt auf Grundlage
+                    von Art. 6 Abs. 1 lit. a DSGVO, soweit du uns durch das
+                    Absenden des Formulars deine Einwilligung zur Verarbeitung
+                    der angegebenen Daten erteilst.
+                </p>
+
+                <p>
+                    Soweit die Verarbeitung zur Bearbeitung deiner Bewerbung
+                    bzw. zur Durchführung vorvertraglicher Maßnahmen
+                    erforderlich ist, kann die Verarbeitung außerdem auf
+                    Art. 6 Abs. 1 lit. b DSGVO gestützt werden.
+                </p>
+            </section>
+
+            <section>
+                <h2>8. Deine Rechte</h2>
+
+                <p>
+                    Du hast im Rahmen der gesetzlichen Voraussetzungen
+                    insbesondere folgende Rechte:
+                </p>
+
+                <ul>
+                    <li>Recht auf Auskunft über deine gespeicherten personenbezogenen Daten</li>
+                    <li>Recht auf Berichtigung unrichtiger Daten</li>
+                    <li>Recht auf Löschung deiner Daten</li>
+                    <li>Recht auf Einschränkung der Verarbeitung</li>
+                    <li>Recht auf Widerspruch gegen bestimmte Verarbeitungen</li>
+                    <li>Recht auf Datenübertragbarkeit, soweit die gesetzlichen Voraussetzungen erfüllt sind</li>
+                    <li>Recht, eine erteilte Einwilligung jederzeit mit Wirkung für die Zukunft zu widerrufen</li>
+                </ul>
+
+                <p>
+                    Zur Ausübung deiner Rechte kannst du dich an die oben
+                    genannte verantwortliche Stelle wenden.
+                </p>
+
+                <p>
+                    Darüber hinaus hast du das Recht, dich bei einer
+                    zuständigen Datenschutz-Aufsichtsbehörde zu beschweren,
+                    wenn du der Ansicht bist, dass deine personenbezogenen
+                    Daten rechtswidrig verarbeitet werden.
+                </p>
+            </section>
+
+            <section>
+                <h2>9. Cookies und Tracking</h2>
+
+                <p>
+                    Unsere Website verwendet nach unserem derzeitigen
+                    Kenntnisstand keine nicht notwendigen Cookies,
+                    Analyse-Tools oder Tracking-Dienste wie Google Analytics.
+                </p>
+
+                <p>
+                    Sollten zukünftig solche Dienste eingesetzt werden,
+                    wird diese Datenschutzerklärung entsprechend angepasst.
+                </p>
+            </section>
+
+            <section>
+                <h2>12. Externe Inhalte und Dienste</h2>
+
+                <p>
+                    Unsere Website bindet nach unserem derzeitigen
+                    Kenntnisstand keine externen Inhalte wie YouTube-Videos,
+                    Google Maps, Instagram-Feeds oder vergleichbare
+                    Drittanbieter-Inhalte ein.
+                </p>
+
+                <p>
+                    Sollten zukünftig externe Dienste eingebunden werden,
+                    wird diese Datenschutzerklärung entsprechend ergänzt.
+                </p>
+            </section>
+
+            <section>
+                <h2>10. Änderungen dieser Datenschutzerklärung</h2>
+
+                <p>
+                    Wir behalten uns vor, diese Datenschutzerklärung zu
+                    ändern, wenn sich die technischen Gegebenheiten unserer
+                    Website oder die gesetzlichen Anforderungen ändern.
+                </p>
+
+                <p>
+                    Es gilt jeweils die auf dieser Website veröffentlichte
+                    aktuelle Version.
+                </p>
+
+                <div class="info">
+                    <strong>Stand:</strong> 22.08.2026
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer>
+        © Spiele Server 2026 ·
+        <a href="/Spiele-Server/">Startseite</a>
+        ·
+        <a href="/Spiele-Server/bewerbung">Bewerbung</a>
+    </footer>
+
+</body>
+</html>
