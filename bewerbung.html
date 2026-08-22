@@ -146,6 +146,44 @@ body {
     transform: translateY(-2px);
 }
 
+/* =========================
+   DATENSCHUTZ BUTTON
+========================= */
+
+.privacy-button {
+
+    display: block;
+
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    background: rgba(255,255,255,0.1);
+
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    text-align: center;
+
+    transition: 0.2s;
+}
+
+.privacy-button:hover {
+
+    background: rgba(255,255,255,0.18);
+
+    transform: translateY(-2px);
+}
+
 #passwordError {
 
     color: #f87171;
@@ -633,6 +671,18 @@ body.light .password-box input {
     border: 1px solid #cbd5e1;
 }
 
+body.light .privacy-button {
+
+    background: #e2e8f0;
+
+    color: #0f172a;
+}
+
+body.light .privacy-button:hover {
+
+    background: #cbd5e1;
+}
+
 /* =========================
    MOBILE
 ========================= */
@@ -720,11 +770,12 @@ body.light .password-box input {
     <div class="password-box">
 
         <h2>
-            🔒 Geschützter Bereich
+            🔒 Speere
         </h2>
 
         <p>
-            Bitte gib das Passwort ein, um die Bewerbung zu öffnen.
+            Da diese Seite ein Impressum und eine Datenschutzseite hat,
+            musst du dir die zuerst durchlesen!
         </p>
 
         <input
@@ -741,6 +792,16 @@ body.light .password-box input {
             🔓 Bewerbung öffnen
 
         </button>
+
+        <!-- DATENSCHUTZ BUTTON -->
+
+        <a
+            href="datenschutz.html"
+            class="privacy-button">
+
+            🔒 Datenschutz
+
+        </a>
 
         <p id="passwordError"></p>
 
@@ -1056,13 +1117,10 @@ id="message">
 
 <script>
 
+
 /* =========================
    PASSWORT
 ========================= */
-
-/*
-   HIER DEIN PASSWORT EINTRAGEN
-*/
 
 const PAGE_PASSWORD = "4155";
 
@@ -1156,8 +1214,6 @@ document
         .trim();
 
 
-    /* E-MAIL – OPTIONAL */
-
     const email =
         document
         .getElementById("email")
@@ -1247,7 +1303,6 @@ document
         username:
             "Spiele Server - Bewerbungen",
 
-
         embeds: [
 
             {
@@ -1255,15 +1310,12 @@ document
                 title:
                     "📋 Neue Team-Bewerbung",
 
-
                 color:
                     2505830,
-
 
                 fields: [
 
                     {
-
                         name:
                             "Discord-Name:",
 
@@ -1272,12 +1324,9 @@ document
 
                         inline:
                             true
-
                     },
 
-
                     {
-
                         name:
                             "E-Mail-Adresse:",
 
@@ -1287,12 +1336,9 @@ document
 
                         inline:
                             false
-
                     },
 
-
                     {
-
                         name:
                             "Echter Name:",
 
@@ -1301,12 +1347,9 @@ document
 
                         inline:
                             true
-
                     },
 
-
                     {
-
                         name:
                             "Alter:",
 
@@ -1315,12 +1358,9 @@ document
 
                         inline:
                             true
-
                     },
 
-
                     {
-
                         name:
                             "Beworben für:",
 
@@ -1329,12 +1369,9 @@ document
 
                         inline:
                             false
-
                     },
 
-
                     {
-
                         name:
                             "Bereich:",
 
@@ -1343,12 +1380,9 @@ document
 
                         inline:
                             false
-
                     },
 
-
                     {
-
                         name:
                             "Aktivität:",
 
@@ -1357,12 +1391,9 @@ document
 
                         inline:
                             false
-
                     },
 
-
                     {
-
                         name:
                             "Warum möchtest du ins Team:",
 
@@ -1371,12 +1402,9 @@ document
 
                         inline:
                             false
-
                     },
 
-
                     {
-
                         name:
                             "Stärken und Schwächen:",
 
@@ -1385,11 +1413,9 @@ document
 
                         inline:
                             false
-
                     }
 
                 ],
-
 
                 footer: {
 
@@ -1418,7 +1444,7 @@ document
 
     /* =========================
        AN DISCORD SENDEN
-    ========================= */
+========================= */
 
     try {
 
@@ -1432,14 +1458,12 @@ document
                     method:
                         "POST",
 
-
                     headers: {
 
                         "Content-Type":
                             "application/json"
 
                     },
-
 
                     body:
                         JSON.stringify(data)
